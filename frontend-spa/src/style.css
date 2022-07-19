@@ -23,8 +23,8 @@ body{
     margin: auto;
   }
   .logo{
-    width: 70px;
-    height: 70px;
+    width: 240px;
+    height: 100px;
     margin: 20px;
   
   }
@@ -93,3 +93,4 @@ color: white;
 
 
 /* END HEADER CSS */
+
