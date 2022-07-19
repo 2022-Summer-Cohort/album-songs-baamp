@@ -1,8 +1,7 @@
 package org.wcci.apimastery.Model;
 
-
-
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -12,20 +11,18 @@ public class Album {
     private Long id;
     private String title;
     private String imgUrl;
-    private double rating;
     private double avgRating;
 
-//    @ManyToOne
-//    private RecordLabel recordLabel;
-//    @OneToMany
-//    private Collection<Song> songs;
-//    @OneToMany
-//    private Collection<Comment> comments;
+    @ManyToOne
+    private RecordLabel recordLabel;
+    @OneToMany
+    private Collection<Song> songs;
+    @OneToMany
+    private Collection<Comment> comments;
 
-    public Album(String title, String imgUrl, double rating, double avgRating, Collection<Song> songs, Collection<Comment> comments) {
+    public Album(String title, String imgUrl, double avgRating, Collection<Song> songs, Collection<Comment> comments) {
         this.title = title;
         this.imgUrl = imgUrl;
-        this.rating = rating;
         this.avgRating = avgRating;
         this.songs = songs;
         this.comments = comments;
@@ -46,10 +43,6 @@ public class Album {
         return imgUrl;
     }
 
-    public double getRating() {
-        return rating;
-    }
-
     public double getAvgRating() {
         return avgRating;
     }
@@ -66,16 +59,26 @@ public class Album {
         return comments;
     }
 
+    public void updateAverageRating() {
+        int sumRating = 0;
+
+        for (Comment comment : comments) {
+            sumRating += comment.getRating();
+        }
+
+        avgRating = sumRating / comments.size();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Album)) return false;
         Album album = (Album) o;
-        return Double.compare(album.getRating(), getRating()) == 0 && Double.compare(album.getAvgRating(), getAvgRating()) == 0 && Objects.equals(getId(), album.getId()) && Objects.equals(getTitle(), album.getTitle()) && Objects.equals(getImgUrl(), album.getImgUrl()) && Objects.equals(getRecordLabel(), album.getRecordLabel());
+        return Double.compare(album.getAvgRating(), getAvgRating()) == 0 && Objects.equals(getId(), album.getId()) && Objects.equals(getTitle(), album.getTitle()) && Objects.equals(getImgUrl(), album.getImgUrl()) && Objects.equals(getRecordLabel(), album.getRecordLabel());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getTitle(), getImgUrl(), getRating(), getAvgRating(), getRecordLabel());
+        return Objects.hash(getId(), getTitle(), getImgUrl(), getAvgRating(), getRecordLabel());
     }
 }
