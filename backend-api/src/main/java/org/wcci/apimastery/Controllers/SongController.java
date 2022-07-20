@@ -1,25 +1,20 @@
 package org.wcci.apimastery.Controllers;
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.wcci.apimastery.Model.Album;
-import org.wcci.apimastery.Model.Comment;
+import org.wcci.apimastery.Model.SongComment;
 import org.wcci.apimastery.Model.Song;
 import org.wcci.apimastery.repos.AlbumRepository;
-import org.wcci.apimastery.repos.CommentRepository;
+import org.wcci.apimastery.repos.SongCommentRepository;
 import org.wcci.apimastery.repos.SongRepository;
-
-import javax.persistence.Lob;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/albums/{name}/")
 public class SongController {
     private AlbumRepository albumRepo;
-    private CommentRepository commentRepo;
+    private SongCommentRepository commentRepo;
     private SongRepository songRepo;
 
-    public SongController(AlbumRepository albumRepo, CommentRepository commentRepo, SongRepository songRepo) {
+    public SongController(AlbumRepository albumRepo, SongCommentRepository commentRepo, SongRepository songRepo) {
         this.albumRepo = albumRepo;
         this.commentRepo = commentRepo;
         this.songRepo = songRepo;
@@ -46,11 +41,11 @@ public class SongController {
     }
 
     @PostMapping("/{title}/{id}")
-    public Iterable<Comment> addCommentToSong(@RequestBody Comment commentToAdd) {
-        commentRepo.save(commentToAdd);
-        return commentRepo.findAll();
+    public Song addCommentToSong(@RequestBody SongComment songCommentToAdd, @PathVariable String name, @PathVariable Long id) {
+        Song songToAddCommentTo = songRepo.findByNameIgnoreCase(name).get();
+        songToAddCommentTo.addCommentToSong(songCommentToAdd);
+        songRepo.save(songToAddCommentTo);
+        return songToAddCommentTo;
     }
-
-
 
 }

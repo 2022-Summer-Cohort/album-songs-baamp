@@ -1,9 +1,6 @@
 package org.wcci.apimastery.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -16,15 +13,18 @@ public class Song {
     private String linkUrl;
     private String duration;
     private double avgRating;
-    @OneToMany
-    private Collection<Comment> comments;
+    @ManyToOne
+    private Album album;
+    @OneToMany(mappedBy = "comments")
+    private Collection<SongComment> songComments;
 
-    public Song(String title, String linkUrl, String duration, double avgRating, Collection<Comment> comments) {
+    public Song(String title, String linkUrl, String duration, double avgRating, Album album, Collection<SongComment> songComments) {
         this.title = title;
         this.linkUrl = linkUrl;
         this.duration = duration;
         this.avgRating = avgRating;
-        this.comments = comments;
+        this.album = album;
+        this.songComments = songComments;
     }
 
     public Song() {
@@ -50,11 +50,19 @@ public class Song {
         return avgRating;
     }
 
-    public Collection<Comment> getComments() {
-        return comments;
+    public Album getAlbum() {
+        return album;
+    }
+
+    public Collection<SongComment> getComments() {
+        return songComments;
     }
     public void changeTitle(String newTitle) {
         title = newTitle;
+    }
+
+    public void addCommentToSong(SongComment newSongComment) {
+        songComments.add(newSongComment);
     }
 
     @Override

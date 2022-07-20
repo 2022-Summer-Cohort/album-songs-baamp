@@ -16,17 +16,17 @@ public class Album {
 
     @ManyToOne
     private RecordLabel recordLabel;
-    @OneToMany
+    @OneToMany(mappedBy = "songs")
     private Collection<Song> songs;
-    @OneToMany
-    private Collection<Comment> comments;
+    @OneToMany(mappedBy = "albumComments")
+    private Collection<AlbumComment> albumComments;
 
-    public Album(String title, String imgUrl, double avgRating, RecordLabel recordLabel, Collection<Song> songs, Comment...comments) {
+    public Album(String title, String imgUrl, double avgRating, RecordLabel recordLabel, Collection<Song> songs, AlbumComment... albumComments) {
         this.title = title;
         this.imgUrl = imgUrl;
         this.avgRating = avgRating;
         this.songs = songs;
-        this.comments = Set.of(comments);
+        this.albumComments = Set.of(albumComments);
         this.recordLabel = recordLabel;
     }
 
@@ -57,18 +57,18 @@ public class Album {
         return songs;
     }
 
-    public Collection<Comment> getComments() {
-        return comments;
+    public Collection<AlbumComment> getAlbumComments() {
+        return albumComments;
     }
 
     public void updateAverageRating() {
         double sumRating = 0;
 
-        for (Comment comment : comments) {
-            sumRating += comment.getRating();
+        for (AlbumComment albumComment : albumComments) {
+            sumRating += albumComment.getRating();
         }
 
-        avgRating = sumRating / comments.size();
+        avgRating = sumRating / albumComments.size();
     }
 
     public void changeTitle(String newTitle) { title = newTitle; }

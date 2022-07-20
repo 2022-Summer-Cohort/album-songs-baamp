@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-public class Comment {
+public class AlbumComment {
     @Id
     @GeneratedValue
     private Long id;
@@ -23,13 +23,13 @@ public class Comment {
     @JsonIgnore
     private Album album;
 
-    public Comment(String username, double rating, String body) {
+    public AlbumComment(String username, double rating, String body) {
         this.username = username;
         this.rating = rating;
         this.body = body;
     }
 
-    public Comment() {
+    public AlbumComment() {
     }
 
     public double getRating() {
@@ -59,9 +59,9 @@ public class Comment {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Comment)) return false;
-        Comment comment = (Comment) o;
-        return Double.compare(comment.getRating(), getRating()) == 0 && Objects.equals(getId(), comment.getId()) && Objects.equals(getUsername(), comment.getUsername()) && Objects.equals(getBody(), comment.getBody()) && Objects.equals(getSong(), comment.getSong()) && Objects.equals(getAlbum(), comment.getAlbum());
+        if (!(o instanceof AlbumComment)) return false;
+        AlbumComment that = (AlbumComment) o;
+        return Double.compare(that.getRating(), getRating()) == 0 && Objects.equals(getId(), that.getId()) && Objects.equals(getUsername(), that.getUsername()) && Objects.equals(getBody(), that.getBody()) && Objects.equals(getSong(), that.getSong()) && Objects.equals(getAlbum(), that.getAlbum());
     }
 
     @Override

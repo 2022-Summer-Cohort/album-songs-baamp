@@ -5,7 +5,7 @@ import org.wcci.apimastery.Model.Album;
 import org.wcci.apimastery.Model.Song;
 import org.wcci.apimastery.repos.AlbumRepository;
 import org.wcci.apimastery.repos.RecordLabelRepository;
-import org.wcci.apimastery.repos.CommentRepository;
+import org.wcci.apimastery.repos.SongCommentRepository;
 import org.wcci.apimastery.repos.SongRepository;
 
 @RestController
@@ -13,10 +13,10 @@ import org.wcci.apimastery.repos.SongRepository;
 public class AlbumController {
     private AlbumRepository albumRepo;
     private SongRepository songRepo;
-    private CommentRepository commentRepo;
+    private SongCommentRepository commentRepo;
     private RecordLabelRepository recordLabelRepo;
 
-    public AlbumController(AlbumRepository albumRepo, SongRepository songRepo, CommentRepository commentRepo, RecordLabelRepository recordLabelRepo) {
+    public AlbumController(AlbumRepository albumRepo, SongRepository songRepo, SongCommentRepository commentRepo, RecordLabelRepository recordLabelRepo) {
         this.albumRepo = albumRepo;
         this.songRepo = songRepo;
         this.commentRepo = commentRepo;
