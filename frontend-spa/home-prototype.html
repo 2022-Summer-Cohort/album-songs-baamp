@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/src/CSS/style.css">
     <link rel="stylesheet" href="/src/CSS/layout.css">
     <link rel="stylesheet" href="/src/CSS/audiovis.css">
+    <link rel="stylesheet" href="/src/css/albumanimation.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" charset="utf-8"></script> -->
 </head>
@@ -78,6 +79,30 @@
             <canvas id="canvas"></canvas>
             <audio id="audio" controls></audio>
             <img id="touchtunes" src="/src/images/BLANK-TOUCHTUNES.png" alt="">
+            <section class="projects">
+                <div class="slider">
+                    <span style="--i:1;"><img src="/imgs/music.png"
+                            onClick="document.getElementById('album-site').scrollIntoView();">
+                        </a>
+                    </span>
+                    <span style="--i:2;"><img src="/imgs/cookie.png"
+                            onClick="document.getElementById('cookie-clicker').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});">
+                        </a>
+                    </span>
+                    <span style="--i:3;"><img src="/imgs/chinese-food.jpg"
+                            onClick="document.getElementById('review-site').scrollIntoView();">
+                        </a>
+                    </span>
+                    <span style="--i:4;"><img src="/imgs/paw.png"
+                            onClick="document.getElementById('virtual-pet').scrollIntoView();">
+                        </a>
+                    </span>
+                    <span style="--i:5;"><img src="/imgs/w.png"
+                            onClick="document.getElementById('wordle-solver').scrollIntoView();">
+                        </a>
+                    </span>
+                </div>
+            </section>
         </div>
         
     </div>
