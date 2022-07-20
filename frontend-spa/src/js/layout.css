@@ -113,3 +113,8 @@ header .nav .menu{
   width: 65%;
     
 }
+footer{
+    display:flex;
+    justify-content: center;
+    margin: 20px;
+}

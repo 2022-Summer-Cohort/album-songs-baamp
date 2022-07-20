@@ -1,0 +1,30 @@
+#thefile {
+    
+    top: 10px;
+    left: 10px;
+    
+    z-index: 100;
+  }
+  
+  #canvas {
+    
+    position: absolute; 
+    
+    left: 24%;
+    bottom: 25%;
+    /* left: 0;
+    top: 0;  */
+    
+    width: 50%;
+    height: 30%;
+    
+    
+  }
+  
+  audio {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    width: calc(100% - 20px);
+  }
+  

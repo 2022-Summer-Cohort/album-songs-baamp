@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 5 Project</title>
-    <link rel="stylesheet" href="/src/style.css">
-    <link rel="stylesheet" href="/src/js/layout.css">
-    <link rel="stylesheet" href="/src/js/audiovis.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" charset="utf-8"></script> -->
-</head>
-<header>
+export default function header(){
+    return `
+    <header>
     <img class="logo" src="/src/js/images/SODASHOPLOGO.png" alt=""></a>
     <div class="nav">
         <ul class="menu">
@@ -66,23 +55,5 @@
         <li class="menu-item"><a href="#">Miscelanious Link</a></li>
         </ul>
     </div>
-</header>
-<br>
-
-<body id="exposedbrickbackground">
-    <!-- <source src="/src/js/audio/Safari-Song.mp3">
-    </source> -->
-    <div class="container">
-        <div id="content">
-            <input type="file" id="thefile" accept="audio/*" />
-            <canvas id="canvas"></canvas>
-            <audio id="audio" controls></audio>
-            <img id="touchtunes" src="/src/js/images/BLANK-TOUCHTUNES.png" alt="">
-        </div>
-        
-    </div>
-    <script src="/src/js/app.js"></script>
-    <script src="/src/js/animation.js"></script>
-</body>
-<footer>BAAMP Developers at WCCI</footer>
-</html>
+</header>`
+}
