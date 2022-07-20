@@ -50,6 +50,10 @@ public class Song {
         return avgRating;
     }
 
+    public void addComments(Collection<SongComment> newComments) {
+        songComments = newComments;
+    }
+
     public Album getAlbum() {
         return album;
     }

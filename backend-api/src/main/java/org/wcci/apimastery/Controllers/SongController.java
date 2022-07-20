@@ -7,45 +7,49 @@ import org.wcci.apimastery.repos.AlbumRepository;
 import org.wcci.apimastery.repos.SongCommentRepository;
 import org.wcci.apimastery.repos.SongRepository;
 
+import java.util.Collection;
+
 @RestController
-@RequestMapping("/api/albums/{name}/")
+@RequestMapping("/api/songs/")
 public class SongController {
     private AlbumRepository albumRepo;
-    private SongCommentRepository commentRepo;
+    private SongCommentRepository songCommentRepo;
     private SongRepository songRepo;
 
-    public SongController(AlbumRepository albumRepo, SongCommentRepository commentRepo, SongRepository songRepo) {
+    public SongController(AlbumRepository albumRepo, SongCommentRepository songCommentRepo, SongRepository songRepo) {
         this.albumRepo = albumRepo;
-        this.commentRepo = commentRepo;
+        this.songCommentRepo = songCommentRepo;
         this.songRepo = songRepo;
     }
 
-    @GetMapping("/{title}")
-    public Song getSongByName(@PathVariable String name){
-        return songRepo.findByNameIgnoreCase(name).get();
+    @GetMapping("/{id}")
+    public Song getSongByName(@PathVariable Long id){
+        return songRepo.findById(id).get();
     }
 
-    @PatchMapping("/{title}")
+    @PatchMapping("/{id}/editTitle")
     public Song editSongTitle(@RequestBody String newTitle, @PathVariable Long id) {
         Song songToChange = songRepo.findById(id).get();
         songToChange.changeTitle(newTitle);
         songRepo.save(songToChange);
         return songToChange;
     }
-    @PatchMapping("/{title}")
-    public Song editSongLink(@RequestBody String newUrl, @PathVariable String name) {
-        Song songToChange = songRepo.findByNameIgnoreCase(name).get();
+
+    @PatchMapping("/{id}/editLink")
+    public Song editSongLink(@RequestBody String newUrl, @PathVariable Long id) {
+        Song songToChange = songRepo.findById(id).get();
         songToChange.changeUrl(newUrl);
         songRepo.save(songToChange);
         return songToChange;
     }
 
-    @PostMapping("/{title}/{id}")
-    public Song addCommentToSong(@RequestBody SongComment songCommentToAdd, @PathVariable String name, @PathVariable Long id) {
-        Song songToAddCommentTo = songRepo.findByNameIgnoreCase(name).get();
-        songToAddCommentTo.addCommentToSong(songCommentToAdd);
-        songRepo.save(songToAddCommentTo);
-        return songToAddCommentTo;
+    @PutMapping("/{id}/newComment")
+    public Song addCommentToSong(@RequestBody SongComment newComment, @PathVariable Long id) {
+        Song songToEdit = songRepo.findById(id).get();
+        SongComment newSongComment = new SongComment(newComment.getUsername(), newComment.getRating(), newComment.getBody(), songToEdit);
+        songCommentRepo.save(newSongComment);
+
+        return songRepo.findById(id).get();
     }
 
 }

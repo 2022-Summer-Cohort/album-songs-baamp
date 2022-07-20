@@ -19,14 +19,11 @@ public class SongComment {
     @JsonIgnore
     private Song song;
 
-    @ManyToOne
-    @JsonIgnore
-    private Album album;
-
-    public SongComment(String username, double rating, String body) {
+    public SongComment(String username, double rating, String body, Song song) {
         this.username = username;
         this.rating = rating;
         this.body = body;
+        this.song = song;
     }
 
     public SongComment() {
@@ -52,20 +49,16 @@ public class SongComment {
         return song;
     }
 
-    public Album getAlbum() {
-        return album;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof SongComment)) return false;
-        SongComment songComment = (SongComment) o;
-        return Double.compare(songComment.getRating(), getRating()) == 0 && Objects.equals(getId(), songComment.getId()) && Objects.equals(getUsername(), songComment.getUsername()) && Objects.equals(getBody(), songComment.getBody()) && Objects.equals(getSong(), songComment.getSong()) && Objects.equals(getAlbum(), songComment.getAlbum());
+        SongComment that = (SongComment) o;
+        return Double.compare(that.getRating(), getRating()) == 0 && Objects.equals(getId(), that.getId()) && Objects.equals(getUsername(), that.getUsername()) && Objects.equals(getBody(), that.getBody()) && Objects.equals(getSong(), that.getSong());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getUsername(), getRating(), getBody(), getSong(), getAlbum());
+        return Objects.hash(getId(), getUsername(), getRating(), getBody(), getSong());
     }
 }
