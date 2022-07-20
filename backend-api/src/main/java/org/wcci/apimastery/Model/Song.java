@@ -53,6 +53,9 @@ public class Song {
     public Collection<Comment> getComments() {
         return comments;
     }
+    public void changeTitle(String newTitle) {
+        title = newTitle;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -65,5 +68,9 @@ public class Song {
     @Override
     public int hashCode() {
         return Objects.hash(getId(), getTitle(), getLinkUrl(), getDuration(), getAvgRating());
+    }
+
+    public void changeUrl(String newUrl) {
+        linkUrl = newUrl;
     }
 }
