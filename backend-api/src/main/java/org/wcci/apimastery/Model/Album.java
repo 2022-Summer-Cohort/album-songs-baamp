@@ -3,6 +3,7 @@ package org.wcci.apimastery.Model;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Album {
@@ -20,12 +21,13 @@ public class Album {
     @OneToMany
     private Collection<Comment> comments;
 
-    public Album(String title, String imgUrl, double avgRating, Collection<Song> songs, Collection<Comment> comments) {
+    public Album(String title, String imgUrl, double avgRating, RecordLabel recordLabel, Collection<Song> songs, Comment...comments) {
         this.title = title;
         this.imgUrl = imgUrl;
         this.avgRating = avgRating;
         this.songs = songs;
-        this.comments = comments;
+        this.comments = Set.of(comments);
+        this.recordLabel = recordLabel;
     }
 
     public Album() {
@@ -60,7 +62,7 @@ public class Album {
     }
 
     public void updateAverageRating() {
-        int sumRating = 0;
+        double sumRating = 0;
 
         for (Comment comment : comments) {
             sumRating += comment.getRating();
