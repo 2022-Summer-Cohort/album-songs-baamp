@@ -71,43 +71,45 @@
 <br>
 
 <body id="exposedbrickbackground">
-    <!-- <source src="/src/js/audio/Safari-Song.mp3">
-    </source> -->
     <div class="container">
         <div id="content">
             <input type="file" id="thefile" accept="audio/*" />
             <canvas id="canvas"></canvas>
             <audio id="audio" controls></audio>
-            <img id="touchtunes" src="/src/images/BLANK-TOUCHTUNES.png" alt="">
-            <section class="projects">
-                <div class="slider">
-                    <span style="--i:1;"><img src="/imgs/music.png"
-                            onClick="document.getElementById('album-site').scrollIntoView();">
-                        </a>
-                    </span>
-                    <span style="--i:2;"><img src="/imgs/cookie.png"
-                            onClick="document.getElementById('cookie-clicker').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});">
-                        </a>
-                    </span>
-                    <span style="--i:3;"><img src="/imgs/chinese-food.jpg"
-                            onClick="document.getElementById('review-site').scrollIntoView();">
-                        </a>
-                    </span>
-                    <span style="--i:4;"><img src="/imgs/paw.png"
-                            onClick="document.getElementById('virtual-pet').scrollIntoView();">
-                        </a>
-                    </span>
-                    <span style="--i:5;"><img src="/imgs/w.png"
-                            onClick="document.getElementById('wordle-solver').scrollIntoView();">
-                        </a>
-                    </span>
-                </div>
-            </section>
+            <div id="view-screen">
+                <img id="touchtunes" src="/src/images/BLANK-TOUCHTUNES.png" alt="">
+                <canvas id="canvas"></canvas>
+                <section class="projects">
+                    <div class="slider">
+                        <span style="--i:1;"><img src="/src/images/Amon_Amarth_-_Twlight_of_the_Thunder_God.jpeg"
+                                onClick="document.getElementById('album-site').scrollIntoView();">
+                            </a>
+                        </span>
+                        <span style="--i:2;"><img src="/src/images/Oh,Sleeper_COF.jpeg"
+                                onClick="document.getElementById('cookie-clicker').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});">
+                            </a>
+                        </span>
+                        <span style="--i:3;"><img src="/src/images/phantom anthem.jpeg"
+                                onClick="document.getElementById('review-site').scrollIntoView();">
+                            </a>
+                        </span>
+                        <span style="--i:4;"><img src="/src/images/polaris-mortal-coil.jpg"
+                                onClick="document.getElementById('virtual-pet').scrollIntoView();">
+                            </a>
+                        </span>
+                        <span style="--i:5;"><img src="/src/images/WageWar_Blueprints.jpeg"
+                                onClick="document.getElementById('wordle-solver').scrollIntoView();">
+                            </a>
+                        </span>
+                    </div>
+                </section>
+            </div>
         </div>
-        
+
     </div>
     <script src="/src/js/app.js"></script>
     <script src="/src/js/animation.js"></script>
 </body>
 <footer>BAAMP Developers at WCCI</footer>
+
 </html>

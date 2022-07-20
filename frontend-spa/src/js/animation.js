@@ -1,5 +1,7 @@
 window.onload = function() {
   
+
+  //Below in the context, the audio file is searching for the context through "the file. We need to create a fetch for it to fetch the song that is chosen by the user. This video may be the answer https://www.youtube.com/watch?v=3NgVlAscdcA "
     var file = document.getElementById("thefile");
     var audio = document.getElementById("audio");
     
