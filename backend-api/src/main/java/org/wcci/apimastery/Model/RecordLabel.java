@@ -15,13 +15,12 @@ public class RecordLabel {
     @GeneratedValue
     private Long id;
     private String name;
-    @OneToMany
+    @OneToMany(mappedBy = "recordLabel")
     @JsonIgnore
     private Collection<Album> albums;
 
-    public RecordLabel(String name, Collection<Album> albums) {
+    public RecordLabel(String name) {
         this.name = name;
-        this.albums = albums;
     }
 
     public RecordLabel() {
