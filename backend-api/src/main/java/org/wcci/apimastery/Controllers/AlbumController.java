@@ -36,13 +36,17 @@ public class AlbumController {
     public Iterable<Album> addAlbum(@RequestBody Album albumToAdd) {
         if (!albumRepo.findByNameIgnoreCase(albumToAdd.getTitle()).isPresent()) {
             albumRepo.save(albumToAdd);
-            return albumRepo.findAll();
         }
-        else {
-            return albumRepo.findAll();
-        }
+        return albumRepo.findAll();
     }
 
+    @PatchMapping("/{name}/")
+    public Album albumToChangeTitle(@RequestBody String newTitle, @PathVariable String name) {
+        Album albumToChange = albumRepo.findByNameIgnoreCase(name).get();
+        albumToChange.changeTitle(newTitle);
+        albumRepo.save(albumToChange);
+        return albumToChange;
+    }
 
 
 }

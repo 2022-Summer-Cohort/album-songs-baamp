@@ -69,6 +69,8 @@ public class Album {
         avgRating = sumRating / comments.size();
     }
 
+    public void changeTitle(String newTitle) { title = newTitle; }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
