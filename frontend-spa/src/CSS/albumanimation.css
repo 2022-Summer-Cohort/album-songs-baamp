@@ -1,5 +1,5 @@
 .projects {
-    height: 75vh;
+    height: vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,11 +42,30 @@
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 100px;
+    /* border-radius: 100px; */
     object-fit: cover;
     transition: 2s;
 }
 
 .slider span:hover img {
-    transform: translateY(-50px) scale(1.2);
+    transform: translateY(-28px) scale(1.2);
 }
+
+
+
+#view-screen{
+    display: grid;
+    grid-template-columns: 0.33fr 1fr 0.23fr;
+    grid-template-rows: 0.4fr 1fr 0.9fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+  #touchtunes{
+    grid-area: 1 / 2 / 4 / 3;
+  }
+  .projects{
+    grid-area: 2 / 2 / 3 / 3;
+  }
+  #canvas{
+    grid-area: 1 / 2 / 2 / 3;
+  }
