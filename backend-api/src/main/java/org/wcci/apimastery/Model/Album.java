@@ -13,6 +13,7 @@ public class Album {
     @GeneratedValue()
     private Long id;
     private String title;
+    private String artistName;
     private String imgUrl;
     private double avgRating;
     private String recordLabel;
@@ -24,14 +25,19 @@ public class Album {
     @JsonIgnore
     private Collection<AlbumComment> albumComments;
 
-    public Album(String title, String imgUrl, double avgRating, String recordLabel) {
+    public Album(String title, String artistName, String imgUrl) {
         this.title = title;
+        this.artistName = artistName;
         this.imgUrl = imgUrl;
-        this.avgRating = avgRating;
-        this.recordLabel = recordLabel;
     }
 
+
     public Album() {
+    }
+
+    public void addRecordLabel(String newRecordLabel) { recordLabel = newRecordLabel; }
+    public String getArtistName() {
+        return artistName;
     }
 
     public Long getId() {
@@ -70,9 +76,12 @@ public class Album {
         }
 
         avgRating = sumRating / albumComments.size();
+        avgRating = Math.round(avgRating *10) / 10;
     }
 
-    public void changeTitle(String newTitle) { title = newTitle; }
+    public void changeTitle(String newTitle) {
+        title = newTitle;
+    }
 
     public void changeRecordLabel(String newRecordLabel) {
         recordLabel = newRecordLabel;
@@ -87,11 +96,11 @@ public class Album {
         if (this == o) return true;
         if (!(o instanceof Album)) return false;
         Album album = (Album) o;
-        return Double.compare(album.getAvgRating(), getAvgRating()) == 0 && Objects.equals(getId(), album.getId()) && Objects.equals(getTitle(), album.getTitle()) && Objects.equals(getImgUrl(), album.getImgUrl()) && Objects.equals(getRecordLabel(), album.getRecordLabel());
+        return Double.compare(album.getAvgRating(), getAvgRating()) == 0 && Objects.equals(getId(), album.getId()) && Objects.equals(getTitle(), album.getTitle()) && Objects.equals(getArtistName(), album.getArtistName()) && Objects.equals(getImgUrl(), album.getImgUrl()) && Objects.equals(getRecordLabel(), album.getRecordLabel());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getTitle(), getImgUrl(), getAvgRating(), getRecordLabel());
+        return Objects.hash(getId(), getTitle(), getArtistName(), getImgUrl(), getAvgRating(), getRecordLabel());
     }
 }

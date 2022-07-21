@@ -12,7 +12,7 @@ import org.wcci.apimastery.repos.SongRepository;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/api/songs/")
+@RequestMapping("/api/songs")
 public class SongController {
     private AlbumRepository albumRepo;
     private SongCommentRepository songCommentRepo;

@@ -11,7 +11,7 @@ import org.wcci.apimastery.repos.SongCommentRepository;
 import org.wcci.apimastery.repos.SongRepository;
 
 @RestController
-@RequestMapping("/api/albums/")
+@RequestMapping("/api/albums")
 public class AlbumController {
     private AlbumRepository albumRepo;
     private SongRepository songRepo;
@@ -50,6 +50,9 @@ public class AlbumController {
     @PostMapping("")
     public Iterable<Album> addAlbum(@RequestBody Album albumToAdd) {
         if (!albumRepo.findByNameIgnoreCase(albumToAdd.getTitle()).isPresent()) {
+            if(albumToAdd.getRecordLabel().isEmpty()) {
+
+            }
             albumRepo.save(albumToAdd);
         }
         return albumRepo.findAll();
