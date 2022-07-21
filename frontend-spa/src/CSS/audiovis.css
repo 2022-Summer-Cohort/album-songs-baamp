@@ -1,5 +1,5 @@
 #thefile {
-    
+    position: relative;
     top: 10px;
     left: 10px;
     
@@ -8,17 +8,7 @@
   
   #canvas {
     
-    position: absolute; 
     
-    right: 21.5%;
-    bottom: 39%;
-    /* left: 25%;
-    bottom: 25%; */
-    /* left: 0;
-    top: 0;  */
-    
-    width: 50%;
-    height: 20%;
     
     
   }

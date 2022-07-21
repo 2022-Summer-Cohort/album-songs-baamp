@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/src/CSS/layout.css">
     <link rel="stylesheet" href="/src/CSS/audiovis.css">
     <link rel="stylesheet" href="/src/css/albumanimation.css">
+    <link rel="stylesheet" href="/src/CSS/scrollbox.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" charset="utf-8"></script> -->
 </head>
@@ -74,28 +75,44 @@
     <div class="container">
         <input type="file" id="thefile" accept="audio/*" />
         <div id="content">
-            
-            <canvas id="canvas"></canvas>
+           
             <audio id="audio" controls></audio>
             <div id="view-screen">
+                <canvas id="canvas"></canvas>
                 <img id="touchtunes" src="/src/images/BLANK-TOUCHTUNES.png" alt="">
                 <canvas id="canvas"></canvas>
                 <a id="backbutton" href="#"><img id="backbuttonimg" src="/src/images/backbutton.png" alt=""></a>
                 <section class="projects">
+                    <div class="scrolling-box">
+                        <div id="album-info">
+                            <h3 id="artist-name">Artest: Brand New</h3>
+                            <h4 id="album-name">Album: Deja Entendu</h4>
+                        </div>
+                        <section class="box-items">1: Play Crack the Sky</section>
+                        <section class="box-items">2: Glory Fades</section>
+                        <section class="box-items">3: The Quiet Things that No One Ever Knows</section>
+                        <section class="box-items">4: Me vs. Maradona vs. Elvis</section>
+                        <section class="box-items">5: I Will Play the Game Beneath the Spin Light</section>
+                        <section class="box-items">6: Jaws Theme Song</section>
+                        <section class="box-items">7: Okay I believe you, but my tommy gun don't</section>
+                        <section class="box-items">8: Guernica</section>
+                    </div>
+                </section>
+                <!-- <section class="projects">
                     <div class="slider">
                         <span style="--i:1;"><img src="/src/images/Amon_Amarth_-_Twlight_of_the_Thunder_God.jpeg"
                                 onClick="document.getElementById('album-site').scrollIntoView();">
                             </a>
                         </span>
-                        <span style="--i:2;"><img src="/src/images/ALLTHERIGHTREASONS.jpg"
+                        <span style="--i:2;"><img src="/src/images/Oh,Sleeper_COF.jpeg"
                                 onClick="document.getElementById('cookie-clicker').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});">
                             </a>
                         </span>
-                        <span style="--i:3;"><img src="/src/images/DEJAENTENDU.jpg"
+                        <span style="--i:3;"><img src="/src/images/phantom anthem.jpeg"
                                 onClick="document.getElementById('review-site').scrollIntoView();">
                             </a>
                         </span>
-                        <span style="--i:4;"><img src="/src/images/AMERICANHEARTBREAK.jpg"
+                        <span style="--i:4;"><img src="/src/images/polaris-mortal-coil.jpg"
                                 onClick="document.getElementById('virtual-pet').scrollIntoView();">
                             </a>
                         </span>
@@ -103,17 +120,8 @@
                                 onClick="document.getElementById('wordle-solver').scrollIntoView();">
                             </a>
                         </span>
-                        <span style="--i:6;"><img src="/src/images/Oh,Sleeper_COF.jpeg"
-                                onClick="document.getElementById('wordle-solver').scrollIntoView();">
-                            </a>
-                        </span>
-                        <!-- <span style="--i:7;"><img src="/src/images/WageWar_Blueprints.jpeg"
-                            onClick="document.getElementById('wordle-solver').scrollIntoView();">
-                        </a>
-                        </span> -->
-                    </span>
                     </div>
-                </section>
+                </section> -->
             </div>
         </div>
 

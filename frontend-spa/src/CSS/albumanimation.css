@@ -11,7 +11,7 @@
     width: 150px;
     height: 150px;
     transform-style: preserve-3d;
-    animation: rotate 30s linear infinite;
+    animation: rotate 16s linear infinite;
 }
 
 @keyframes rotate {
@@ -32,7 +32,7 @@
     height: 100%;
     transform-origin: center;
     transform-style: preserve-3d;
-    transform: rotateY(calc(var(--i)*72deg)) translateZ(300px);
+    transform: rotateY(calc(var(--i)*42deg)) translateZ(300px);
     /* The deg above is (360/numOfElements) */
 }
 
@@ -44,7 +44,7 @@
     height: 100%;
     /* border-radius: 100px; */
     object-fit: cover;
-    transition: 2s;
+    transition: 1s;
 }
 
 .slider span:hover img {
@@ -55,17 +55,58 @@
 
 #view-screen{
     display: grid;
+    width: 1000px;
+    /* padding-left: 500px; */
     grid-template-columns: 0.33fr 1fr 0.23fr;
     grid-template-rows: 0.4fr 1fr 0.9fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+  }
+  #backbutton{
+    display: block;
+    grid-area: 1 / 2 / 2 / 3;
+    /* margin: 8%;
+    margin-top: 13%; */
+    z-index: 4;
+  }
+  
+  #backbuttonimg{
+    height: 4rem;
+    width: 4rem;
+    
+    margin-left: 50px;
+    margin-top: 100px;
   }
   #touchtunes{
     grid-area: 1 / 2 / 4 / 3;
   }
   .projects{
     grid-area: 2 / 2 / 3 / 3;
+    margin-right: 25px;
   }
   #canvas{
-    grid-area: 1 / 2 / 2 / 3;
+    /* grid-area: 1 / 2 / 2 / 3; */
+    position: absolute; 
+    margin-top: 90px;
+    margin-right: 6%;
+    margin-left: 11%;
+    /* right: 250px;
+    left: 250px;
+    margin-top: 90px;
+    margin-left: 50px; */
+    /* left: 25%;
+    bottom: 25%; */
+    /* left: 0;
+    top: 0;  */
+    
+    width: 35rem;
+    height: 8rem;
+    /* justify-content: center; */
   }
+
+  /* @media only screen and (max-width: 1240){
+    #backbuttonimg{
+        
+        background-color: purple;
+    }
+  } */
