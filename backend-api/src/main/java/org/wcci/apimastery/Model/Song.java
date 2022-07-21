@@ -1,5 +1,7 @@
 package org.wcci.apimastery.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
@@ -13,18 +15,19 @@ public class Song {
     private String linkUrl;
     private String duration;
     private double avgRating;
+
     @ManyToOne
     private Album album;
     @OneToMany(mappedBy = "songComments")
+    @JsonIgnore
     private Collection<SongComment> songComments;
 
-    public Song(String title, String linkUrl, String duration, double avgRating, Album album, Collection<SongComment> songComments) {
+    public Song(String title, String linkUrl, String duration, double avgRating, Album album) {
         this.title = title;
         this.linkUrl = linkUrl;
         this.duration = duration;
         this.avgRating = avgRating;
         this.album = album;
-        this.songComments = songComments;
     }
 
     public Song() {
@@ -69,20 +72,20 @@ public class Song {
         songComments.add(newSongComment);
     }
 
+    public void changeUrl(String newUrl) {
+        linkUrl = newUrl;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Song)) return false;
         Song song = (Song) o;
-        return Double.compare(song.getAvgRating(), getAvgRating()) == 0 && Objects.equals(getId(), song.getId()) && Objects.equals(getTitle(), song.getTitle()) && Objects.equals(getLinkUrl(), song.getLinkUrl()) && Objects.equals(getDuration(), song.getDuration());
+        return Double.compare(song.getAvgRating(), getAvgRating()) == 0 && Objects.equals(getId(), song.getId()) && Objects.equals(getTitle(), song.getTitle()) && Objects.equals(getLinkUrl(), song.getLinkUrl()) && Objects.equals(getDuration(), song.getDuration()) && Objects.equals(getAlbum(), song.getAlbum());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getTitle(), getLinkUrl(), getDuration(), getAvgRating());
-    }
-
-    public void changeUrl(String newUrl) {
-        linkUrl = newUrl;
+        return Objects.hash(getId(), getTitle(), getLinkUrl(), getDuration(), getAvgRating(), getAlbum());
     }
 }

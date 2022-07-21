@@ -16,13 +16,13 @@ public class AlbumComment {
     private String body;
 
     @ManyToOne
-    @JsonIgnore
     private Album album;
 
-    public AlbumComment(String username, double rating, String body) {
+    public AlbumComment(String username, double rating, String body, Album album) {
         this.username = username;
         this.rating = rating;
         this.body = body;
+        this.album = album;
     }
 
     public AlbumComment() {

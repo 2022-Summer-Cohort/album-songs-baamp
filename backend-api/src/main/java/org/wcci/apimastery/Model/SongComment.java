@@ -16,7 +16,6 @@ public class SongComment {
     private String body;
 
     @ManyToOne
-    @JsonIgnore
     private Song song;
 
     public SongComment(String username, double rating, String body, Song song) {

@@ -1,5 +1,7 @@
 package org.wcci.apimastery.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
@@ -13,20 +15,19 @@ public class Album {
     private String title;
     private String imgUrl;
     private double avgRating;
+    private String recordLabel;
 
-    @ManyToOne
-    private RecordLabel recordLabel;
     @OneToMany(mappedBy = "songs")
+    @JsonIgnore
     private Collection<Song> songs;
     @OneToMany(mappedBy = "albumComments")
+    @JsonIgnore
     private Collection<AlbumComment> albumComments;
 
-    public Album(String title, String imgUrl, double avgRating, RecordLabel recordLabel, Collection<Song> songs, AlbumComment... albumComments) {
+    public Album(String title, String imgUrl, double avgRating, String recordLabel) {
         this.title = title;
         this.imgUrl = imgUrl;
         this.avgRating = avgRating;
-        this.songs = songs;
-        this.albumComments = Set.of(albumComments);
         this.recordLabel = recordLabel;
     }
 
@@ -49,7 +50,7 @@ public class Album {
         return avgRating;
     }
 
-    public RecordLabel getRecordLabel() {
+    public String getRecordLabel() {
         return recordLabel;
     }
 
@@ -72,6 +73,14 @@ public class Album {
     }
 
     public void changeTitle(String newTitle) { title = newTitle; }
+
+    public void changeRecordLabel(String newRecordLabel) {
+        recordLabel = newRecordLabel;
+    }
+
+    public void changeUrl(String newImgUrl) {
+        imgUrl = newImgUrl;
+    }
 
     @Override
     public boolean equals(Object o) {
