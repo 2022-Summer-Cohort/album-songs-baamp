@@ -18,7 +18,7 @@ public class Song {
 
     @ManyToOne
     private Album album;
-    @OneToMany(mappedBy = "songComments")
+    @OneToMany(mappedBy = "song")
     @JsonIgnore
     private Collection<SongComment> songComments;
 
@@ -50,6 +50,10 @@ public class Song {
 
     public double getAvgRating() {
         return avgRating;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
     }
 
     public void addComments(Collection<SongComment> newComments) {

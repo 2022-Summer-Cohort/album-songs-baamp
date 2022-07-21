@@ -38,7 +38,6 @@ public class AlbumController {
     // Post to add a new song, etc.
     // Get to show song, etc.
     // Delete to delete songs, etc.
-
     @PatchMapping("/{id}/newRecordLabel")
     public Album albumToChangeRecordLabel(@RequestBody String newRecordLabel, @PathVariable Long id) {
         Album albumToChange = albumRepo.findById(id).get();
@@ -49,19 +48,20 @@ public class AlbumController {
 
     @PostMapping("")
     public Iterable<Album> addAlbum(@RequestBody Album albumToAdd) {
-        if (!albumRepo.findByNameIgnoreCase(albumToAdd.getTitle()).isPresent()) {
-            if(albumToAdd.getRecordLabel().isEmpty()) {
+        if (!albumRepo.findById(albumToAdd.getId()).isPresent()) {
 
-            }
             albumRepo.save(albumToAdd);
         }
         return albumRepo.findAll();
     }
 
-    @PostMapping("")
-    public Iterable<Song> addSongToAlbum(@RequestBody Song songToAdd) {
-        if(!songRepo.findByNameIgnoreCase(songToAdd.getTitle()).isPresent()) {
+    @PostMapping("/{id}")
+    public Iterable<Song> addSongToAlbum(@RequestBody Song songToAdd, @PathVariable Long id) {
+        if(songRepo.findById(id).isEmpty()) {
+//            songToAdd.setAlbum(albumRepo.findById(id).get());
+//            albumRepo.save(albumRepo.findById(id).get());
             songRepo.save(songToAdd);
+
         }
         return songRepo.findAll();
     }

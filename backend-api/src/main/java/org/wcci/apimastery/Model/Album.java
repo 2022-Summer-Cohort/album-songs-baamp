@@ -18,10 +18,10 @@ public class Album {
     private double avgRating;
     private String recordLabel;
 
-    @OneToMany(mappedBy = "songs")
+    @OneToMany(mappedBy = "album")
     @JsonIgnore
     private Collection<Song> songs;
-    @OneToMany(mappedBy = "albumComments")
+    @OneToMany(mappedBy = "album")
     @JsonIgnore
     private Collection<AlbumComment> albumComments;
 
@@ -76,7 +76,7 @@ public class Album {
         }
 
         avgRating = sumRating / albumComments.size();
-        avgRating = Math.round(avgRating *10) / 10;
+        avgRating = Math.round(avgRating *10.0) / 10.0;
     }
 
     public void changeTitle(String newTitle) {
