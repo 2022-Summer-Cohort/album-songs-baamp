@@ -48,6 +48,14 @@ public class AlbumComment {
         return album;
     }
 
+    public void changeRating(double newRating) {
+        rating = newRating;
+    }
+
+    public void changeBody(String newBody) {
+        body = newBody;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

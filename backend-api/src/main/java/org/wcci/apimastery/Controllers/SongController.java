@@ -1,6 +1,8 @@
 package org.wcci.apimastery.Controllers;
 
 import org.springframework.web.bind.annotation.*;
+import org.wcci.apimastery.Model.Album;
+import org.wcci.apimastery.Model.AlbumComment;
 import org.wcci.apimastery.Model.SongComment;
 import org.wcci.apimastery.Model.Song;
 import org.wcci.apimastery.repos.AlbumRepository;
@@ -43,13 +45,31 @@ public class SongController {
         return songToChange;
     }
 
-    @PutMapping("/{id}/newComment")
+    @PostMapping("/{id}/newComment")
     public Song addCommentToSong(@RequestBody SongComment newComment, @PathVariable Long id) {
         Song songToEdit = songRepo.findById(id).get();
         SongComment newSongComment = new SongComment(newComment.getUsername(), newComment.getRating(), newComment.getBody(), songToEdit);
         songCommentRepo.save(newSongComment);
 
         return songRepo.findById(id).get();
+    }
+
+    @PatchMapping("/{id}/editSongCommentRating")
+    public Iterable<SongComment> changeRatingOnSongComment(@RequestBody double newRating, @PathVariable Long id) {
+        SongComment songCommentToEdit = songCommentRepo.findById(id).get();
+        songCommentToEdit.changeRating(newRating);
+        songCommentRepo.save(songCommentToEdit);
+
+        return songCommentRepo.findAll();
+    }
+
+    @PatchMapping("/{id}/editSongCommentBody")
+    public Iterable<SongComment> changeBodyOnSongComment(@RequestBody String newBody, @PathVariable Long id) {
+        SongComment songCommentToEdit = songCommentRepo.findById(id).get();
+        songCommentToEdit.changeBody(newBody);
+        songCommentRepo.save(songCommentToEdit);
+
+        return songCommentRepo.findAll();
     }
 
 }

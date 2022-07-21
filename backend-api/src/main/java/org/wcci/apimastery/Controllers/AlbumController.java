@@ -2,7 +2,10 @@ package org.wcci.apimastery.Controllers;
 
 import org.springframework.web.bind.annotation.*;
 import org.wcci.apimastery.Model.Album;
+import org.wcci.apimastery.Model.AlbumComment;
 import org.wcci.apimastery.Model.Song;
+import org.wcci.apimastery.Model.SongComment;
+import org.wcci.apimastery.repos.AlbumCommentRepository;
 import org.wcci.apimastery.repos.AlbumRepository;
 import org.wcci.apimastery.repos.SongCommentRepository;
 import org.wcci.apimastery.repos.SongRepository;
@@ -12,12 +15,12 @@ import org.wcci.apimastery.repos.SongRepository;
 public class AlbumController {
     private AlbumRepository albumRepo;
     private SongRepository songRepo;
-    private SongCommentRepository commentRepo;
+    private AlbumCommentRepository albumCommentRepo;
 
-    public AlbumController(AlbumRepository albumRepo, SongRepository songRepo, SongCommentRepository commentRepo) {
+    public AlbumController(AlbumRepository albumRepo, SongRepository songRepo, AlbumCommentRepository albumCommentRepo) {
         this.albumRepo = albumRepo;
         this.songRepo = songRepo;
-        this.commentRepo = commentRepo;
+        this.albumCommentRepo = albumCommentRepo;
     }
 
     @GetMapping("")
@@ -74,6 +77,33 @@ public class AlbumController {
         albumToChange.changeUrl(newImgUrl);
         albumRepo.save(albumToChange);
         return albumToChange;
+    }
+
+    @PostMapping("/{id}/newComment")
+    public Album addCommentToAlbum(@RequestBody AlbumComment newComment, @PathVariable Long id) {
+        Album albumToEdit = albumRepo.findById(id).get();
+        AlbumComment newAlbumComment = new AlbumComment(newComment.getUsername(), newComment.getRating(), newComment.getBody(), albumToEdit);
+        albumCommentRepo.save(newAlbumComment);
+
+        return albumRepo.findById(id).get();
+    }
+
+    @PatchMapping("/{id}/editAlbumCommentRating")
+    public Iterable<AlbumComment> changeRatingOnAlbumComment(@RequestBody double newRating, @PathVariable Long id) {
+        AlbumComment albumCommentToEdit = albumCommentRepo.findById(id).get();
+        albumCommentToEdit.changeRating(newRating);
+        albumCommentRepo.save(albumCommentToEdit);
+
+        return albumCommentRepo.findAll();
+    }
+
+    @PatchMapping("/{id}/editAlbumCommentBody")
+    public Iterable<AlbumComment> changeBodyOnAlbumComment(@RequestBody String newBody, @PathVariable Long id) {
+        AlbumComment albumCommentToEdit = albumCommentRepo.findById(id).get();
+        albumCommentToEdit.changeBody(newBody);
+        albumCommentRepo.save(albumCommentToEdit);
+
+        return albumCommentRepo.findAll();
     }
 
 }
