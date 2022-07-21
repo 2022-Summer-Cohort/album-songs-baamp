@@ -29,7 +29,7 @@ public class AlbumController {
     }
 
     @GetMapping("/{id}")
-    public Album getAlbumByName(@PathVariable Long id) {
+    public Album getAlbumById(@PathVariable Long id) {
         return albumRepo.findById(id).get();
     }
 
@@ -58,12 +58,14 @@ public class AlbumController {
     @PostMapping("/{id}")
     public Iterable<Song> addSongToAlbum(@RequestBody Song songToAdd, @PathVariable Long id) {
         if(songRepo.findById(id).isEmpty()) {
-//            songToAdd.setAlbum(albumRepo.findById(id).get());
-//            albumRepo.save(albumRepo.findById(id).get());
+            songToAdd.setAlbum(albumRepo.findById(id).get());
+            albumRepo.save(albumRepo.findById(id).get());
             songRepo.save(songToAdd);
 
+
         }
-        return songRepo.findAll();
+
+        return albumRepo.findById(id).get().getSongs();
     }
 
     @PatchMapping("/{id}/newAlbumTitle")

@@ -18,17 +18,17 @@ public class Album {
     private double avgRating;
     private String recordLabel;
 
-    @OneToMany(mappedBy = "album")
-    @JsonIgnore
+    @OneToMany
     private Collection<Song> songs;
     @OneToMany(mappedBy = "album")
     @JsonIgnore
     private Collection<AlbumComment> albumComments;
 
-    public Album(String title, String artistName, String imgUrl) {
+    public Album(String title, String artistName, String imgUrl, Song... songs) {
         this.title = title;
         this.artistName = artistName;
         this.imgUrl = imgUrl;
+        this.songs = Set.of(songs);
     }
 
 
@@ -89,6 +89,10 @@ public class Album {
 
     public void changeUrl(String newImgUrl) {
         imgUrl = newImgUrl;
+    }
+
+    public void addSong(Song song) {
+        songs.add(song);
     }
 
     @Override

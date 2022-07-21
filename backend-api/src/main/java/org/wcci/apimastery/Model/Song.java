@@ -22,11 +22,10 @@ public class Song {
     @JsonIgnore
     private Collection<SongComment> songComments;
 
-    public Song(String title, String linkUrl, String duration, Album album) {
+    public Song(String title, String linkUrl, String duration) {
         this.title = title;
         this.linkUrl = linkUrl;
         this.duration = duration;
-        this.album = album;
     }
 
     public Song() {
