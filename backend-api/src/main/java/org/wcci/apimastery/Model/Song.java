@@ -15,7 +15,7 @@ public class Song {
     private double avgRating;
     @ManyToOne
     private Album album;
-    @OneToMany(mappedBy = "comments")
+    @OneToMany(mappedBy = "songComments")
     private Collection<SongComment> songComments;
 
     public Song(String title, String linkUrl, String duration, double avgRating, Album album, Collection<SongComment> songComments) {

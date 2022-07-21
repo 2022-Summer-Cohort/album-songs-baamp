@@ -17,10 +17,6 @@ public class AlbumComment {
 
     @ManyToOne
     @JsonIgnore
-    private Song song;
-
-    @ManyToOne
-    @JsonIgnore
     private Album album;
 
     public AlbumComment(String username, double rating, String body) {
@@ -48,10 +44,6 @@ public class AlbumComment {
         return body;
     }
 
-    public Song getSong() {
-        return song;
-    }
-
     public Album getAlbum() {
         return album;
     }
@@ -61,11 +53,11 @@ public class AlbumComment {
         if (this == o) return true;
         if (!(o instanceof AlbumComment)) return false;
         AlbumComment that = (AlbumComment) o;
-        return Double.compare(that.getRating(), getRating()) == 0 && Objects.equals(getId(), that.getId()) && Objects.equals(getUsername(), that.getUsername()) && Objects.equals(getBody(), that.getBody()) && Objects.equals(getSong(), that.getSong()) && Objects.equals(getAlbum(), that.getAlbum());
+        return Double.compare(that.getRating(), getRating()) == 0 && Objects.equals(getId(), that.getId()) && Objects.equals(getUsername(), that.getUsername()) && Objects.equals(getBody(), that.getBody()) && Objects.equals(getAlbum(), that.getAlbum());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getUsername(), getRating(), getBody(), getSong(), getAlbum());
+        return Objects.hash(getId(), getUsername(), getRating(), getBody(), getAlbum());
     }
 }

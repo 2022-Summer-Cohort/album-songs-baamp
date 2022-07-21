@@ -9,7 +9,7 @@ import org.wcci.apimastery.repos.SongCommentRepository;
 import org.wcci.apimastery.repos.SongRepository;
 
 @RestController
-@RequestMapping("/api/albums")
+@RequestMapping("/api/albums/")
 public class AlbumController {
     private AlbumRepository albumRepo;
     private SongRepository songRepo;
@@ -28,9 +28,9 @@ public class AlbumController {
         return albumRepo.findAll();
     }
 
-    @GetMapping("/{name}")
-    public Album getAlbumByName(@PathVariable String name) {
-        return albumRepo.findByNameIgnoreCase(name).get();
+    @GetMapping("/{id}")
+    public Album getAlbumByName(@PathVariable Long id) {
+        return albumRepo.findById(id).get();
     }
 
     @PostMapping("")
@@ -49,11 +49,9 @@ public class AlbumController {
         return songRepo.findAll();
     }
 
-
-
-    @PatchMapping("/{name}/")
-    public Album albumToChangeTitle(@RequestBody String newTitle, @PathVariable String name) {
-        Album albumToChange = albumRepo.findByNameIgnoreCase(name).get();
+    @PatchMapping("/{id}/newAlbumTitle")
+    public Album albumToChangeTitle(@RequestBody String newTitle, @PathVariable Long id) {
+        Album albumToChange = albumRepo.findById(id).get();
         albumToChange.changeTitle(newTitle);
         albumRepo.save(albumToChange);
         return albumToChange;
