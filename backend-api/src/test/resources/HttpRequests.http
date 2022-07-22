@@ -27,6 +27,6 @@ Content-Type: application/json
 {"id": 2, "title":  "Photograph (Live in ATL)", "linkUrl": "#", "duration": "4:40"}
 
 ### get album songs
-GET http://localhost:8080/api/albums/2
+GET http://localhost:8080/api/albums/2/songs
 Content-Type: application/json
 

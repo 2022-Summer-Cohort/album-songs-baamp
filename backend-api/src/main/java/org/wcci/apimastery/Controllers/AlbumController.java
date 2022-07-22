@@ -58,10 +58,12 @@ public class AlbumController {
     }
 
     @PostMapping("/{id}/addSongToAlbum")
-    public Iterable<Song> addSongToAlbum(@PathVariable Long id, @RequestBody Song songToAdd) {
-        Album albumToAddSongTo = albumRepo.findById(id).get();
+    public Album addSongToAlbum(@PathVariable Long id, @RequestBody Song songToAdd) {
+        Album album = albumRepo.findById(id).get();
+        songToAdd.setAlbum(album);
         songRepo.save(songToAdd);
-        return albumToAddSongTo.getSongs();
+
+        return album;
     }
 
     @PatchMapping("/{id}/newAlbumTitle")
