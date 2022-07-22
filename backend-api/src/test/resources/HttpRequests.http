@@ -1,9 +1,13 @@
+### Get all songs
+GET http://localhost:8080/api/songs
+Content-Type: application/json
+
 ### Get all albums
 GET http://localhost:8080/api/albums
 Content-Type: application/json
 
 ### Get album with given id
-GET http://localhost:8080/api/albums/0
+GET http://localhost:8080/api/albums/1
 Content-Type: application/json
 
 ###Delete an album with the given id.
@@ -11,16 +15,16 @@ DELETE http://localhost:8080/api/albums/1
 Content-Type: application/json
 
 ### Post a new album
-POST http://localhost:8080/api/albums
+POST http://localhost:8080/api/albums/addAlbum
 Content-Type: application/json
 
 {"title": "Barney and Friends", "artistName": "Barney", "imgUrl": "https://static.wikia.nocookie.net/iannielli-legend/images/2/2c/Barney.jpg/revision/latest?cb=20150525032725"}
 
 ### Add a song to an album
-POST http://localhost:8080/api/albums/2
+POST http://localhost:8080/api/albums/2/addSongToAlbum
 Content-Type: application/json
 
-{"title":  "Photograph (Live in ATL)", "linkUrl": "#", "duration": "4:40"}
+{"id": 2, "title":  "Photograph (Live in ATL)", "linkUrl": "#", "duration": "4:40"}
 
 ### get album songs
 GET http://localhost:8080/api/albums/2

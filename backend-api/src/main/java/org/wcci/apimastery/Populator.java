@@ -28,25 +28,27 @@ public class Populator implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
-
+        Album dejaEntendu = new Album("Deja Entendu", "Brand New",
+                "https://upload.wikimedia.org/wikipedia/en/e/e0/BrandNew_SicTransitGloria.jpg");
+        albumRepo.save(dejaEntendu);
+        dejaEntendu.addRecordLabel("Sore Point");
+        albumRepo.save(dejaEntendu);
+        Album americanHeartbreak = new Album("American Heartbreak", "Zach Bryan",
+                "https://upload.wikimedia.org/wikipedia/en/thumb/0/08/Zach_Bryan_-_American_Heartbreak.png/220px-Zach_Bryan_-_American_Heartbreak.png");
+        albumRepo.save(americanHeartbreak);
         Album allTheRightReasons = new Album("All the Right Reasons", "Nickelback",
                 "https://dancingbear.hr/wp-content/uploads/2018/07/nickl-78.jpeg.jpg");
         allTheRightReasons.addRecordLabel("Roadrunner");
         albumRepo.save(allTheRightReasons);
-        Album americanHeartbreak = new Album("American Heartbreak", "Zach Bryan",
-                "https://upload.wikimedia.org/wikipedia/en/thumb/0/08/Zach_Bryan_-_American_Heartbreak.png/220px-Zach_Bryan_-_American_Heartbreak.png");
-        albumRepo.save(americanHeartbreak);
-        
-        Song song1 = new Song("Tautou", "#", "1:42");
-        Song song4 = new Song("Okay I Believe You, but My Tommy Gun Don't", "#", "5:35");
-        Song song7 = new Song("Jaws Theme Swimming", "#", "4:34");
-        Song song2 = new Song("Sic Transit Gloria...Glory Fades", "#", "3:06");
-        Song song5 = new Song("The Quiet Things That No One Ever Knows", "#", "4:02");
-        Song song8 = new Song("Me vs. Maradona vs. Elvis", "#", "5:19");
-        Song song3 = new Song("I Will Play My Game Beneath The Spin Light", "#", "3:57");
-        Song song6 = new Song("The Boy Who Blocked His Own Shot", "#", "4:39");
-        Song song9 = new Song("Guernica", "#", "3:24");
+        Song song1 = new Song("Tautou", "#", "1:42", dejaEntendu);
+        Song song4 = new Song("Okay I Believe You, but My Tommy Gun Don't", "#", "5:35", dejaEntendu);
+        Song song7 = new Song("Jaws Theme Swimming", "#", "4:34", dejaEntendu);
+        Song song2 = new Song("Sic Transit Gloria...Glory Fades", "#", "3:06", dejaEntendu);
+        Song song5 = new Song("The Quiet Things That No One Ever Knows", "#", "4:02", dejaEntendu);
+        Song song8 = new Song("Me vs. Maradona vs. Elvis", "#", "5:19", dejaEntendu);
+        Song song3 = new Song("I Will Play My Game Beneath The Spin Light", "#", "3:57", dejaEntendu);
+        Song song6 = new Song("The Boy Who Blocked His Own Shot", "#", "4:39", dejaEntendu);
+        Song song9 = new Song("Guernica", "#", "3:24", dejaEntendu);
         songRepo.save(song1);
         songRepo.save(song2);
         songRepo.save(song3);
@@ -56,38 +58,29 @@ public class Populator implements CommandLineRunner {
         songRepo.save(song7);
         songRepo.save(song8);
         songRepo.save(song9);
-
-        Album dejaEntendu = new Album("Deja Entendu", "Brand New",
-                "https://upload.wikimedia.org/wikipedia/en/e/e0/BrandNew_SicTransitGloria.jpg");
-        dejaEntendu.addRecordLabel("Sore Point");
-        dejaEntendu.addSong(song1);
-        dejaEntendu.addSong(song2);
-
-        albumRepo.save(dejaEntendu);
-
-        Song aH1 = new Song("Late July", "#", "2:59");
-        Song aH2 = new Song("Heavy Eyes", "#", "3:11");
-        Song aH3 = new Song("Mine Again", "#", "3:45");
-        Song aH4 = new Song("Happy Instead", "#", "4:10");
-        Song aH5 = new Song("Younger Years", "#", "3:26");
-        Song aH6 = new Song("Tishomingo", "#", "3:09");
+        Song aH1 = new Song("Late July", "#", "2:59", americanHeartbreak);
+        Song aH2 = new Song("Heavy Eyes", "#", "3:11", americanHeartbreak);
+        Song aH3 = new Song("Mine Again", "#", "3:45", americanHeartbreak);
+        Song aH4 = new Song("Happy Instead", "#", "4:10", americanHeartbreak);
+        Song aH5 = new Song("Younger Years", "#", "3:26", americanHeartbreak);
+        Song aH6 = new Song("Tishomingo", "#", "3:09", americanHeartbreak);
         songRepo.save(aH1);
         songRepo.save(aH2);
         songRepo.save(aH3);
         songRepo.save(aH4);
         songRepo.save(aH5);
         songRepo.save(aH6);
-        Song nbSong1 = new Song("Follow You Home", "#", "4:20");
-        Song nbSong2 = new Song("Fight for All the Wrong Reasons", "#", "3:44");
-        Song nbSong3 = new Song("Photograph", "#", "4:19");
-        Song nbSong4 = new Song("Animals", "#", "3:07");
-        Song nbSong5 = new Song("Savin' Me", "#", "3:38");
-        Song nbSong6 = new Song("Far Away", "#", "3:58");
-        Song nbSong7 = new Song("Next Contestant", "#", "3:35");
-        Song nbSong8 = new Song("Side of a Bullet", "#", "3:01");
-        Song nbSong9 = new Song("If Everyone Cared", "#", "3:38");
-        Song nbSong10 = new Song("Someone that You're With", "#", "4:02");
-        Song nbSong11 = new Song("Rockstar", "#", "4:15");
+        Song nbSong1 = new Song("Follow You Home", "#", "4:20", allTheRightReasons);
+        Song nbSong2 = new Song("Fight for All the Wrong Reasons", "#", "3:44", allTheRightReasons);
+        Song nbSong3 = new Song("Photograph", "#", "4:19", allTheRightReasons);
+        Song nbSong4 = new Song("Animals", "#", "3:07", allTheRightReasons);
+        Song nbSong5 = new Song("Savin' Me", "#", "3:38", allTheRightReasons);
+        Song nbSong6 = new Song("Far Away", "#", "3:58", allTheRightReasons);
+        Song nbSong7 = new Song("Next Contestant", "#", "3:35", allTheRightReasons);
+        Song nbSong8 = new Song("Side of a Bullet", "#", "3:01", allTheRightReasons);
+        Song nbSong9 = new Song("If Everyone Cared", "#", "3:38", allTheRightReasons);
+        Song nbSong10 = new Song("Someone that You're With", "#", "4:02", allTheRightReasons);
+        Song nbSong11 = new Song("Rockstar", "#", "4:15", allTheRightReasons);
         songRepo.save(nbSong1);
         songRepo.save(nbSong2);
         songRepo.save(nbSong3);
@@ -183,16 +176,5 @@ public class Populator implements CommandLineRunner {
         albumCommentRepo.save(nbComment);
         albumCommentRepo.save(dEComment);
         albumCommentRepo.save(aHComment);
-
-
-
-
-
-
-
-
-
-
-
     }
 }

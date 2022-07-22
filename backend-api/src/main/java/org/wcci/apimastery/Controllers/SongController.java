@@ -23,11 +23,20 @@ public class SongController {
         this.songCommentRepo = songCommentRepo;
         this.songRepo = songRepo;
     }
-
+    @GetMapping("")
+    public Iterable<Song> getAllSongs() {
+        return songRepo.findAll();
+    }
     @GetMapping("/{id}")
     public Song getSongByName(@PathVariable Long id){
         return songRepo.findById(id).get();
     }
+
+//    @PostMapping("/addSong")
+//    public Iterable<Song> addSongToAlbum(@PathVariable Long id, @RequestBody Song songToAdd) {
+//        songRepo.save(songToAdd);
+//        return albumRepo.findById(id).get().getSongs();
+//    }
 
     @PatchMapping("/{id}/editTitle")
     public Song editSongTitle(@RequestBody String newTitle, @PathVariable Long id) {
@@ -50,7 +59,6 @@ public class SongController {
         Song songToEdit = songRepo.findById(id).get();
         SongComment newSongComment = new SongComment(newComment.getUsername(), newComment.getRating(), newComment.getBody(), songToEdit);
         songCommentRepo.save(newSongComment);
-
         return songRepo.findById(id).get();
     }
 

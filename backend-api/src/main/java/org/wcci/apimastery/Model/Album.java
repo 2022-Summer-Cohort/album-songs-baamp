@@ -3,9 +3,7 @@ package org.wcci.apimastery.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class Album {
@@ -18,17 +16,17 @@ public class Album {
     private double avgRating;
     private String recordLabel;
 
-    @OneToMany
+    @OneToMany(mappedBy = "album")
+    @JsonIgnore
     private Collection<Song> songs;
     @OneToMany(mappedBy = "album")
     @JsonIgnore
     private Collection<AlbumComment> albumComments;
 
-    public Album(String title, String artistName, String imgUrl, Song... songs) {
+    public Album(String title, String artistName, String imgUrl) {
         this.title = title;
         this.artistName = artistName;
         this.imgUrl = imgUrl;
-        this.songs = Set.of(songs);
     }
 
 

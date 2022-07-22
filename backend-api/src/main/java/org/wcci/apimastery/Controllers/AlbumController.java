@@ -33,6 +33,11 @@ public class AlbumController {
         return albumRepo.findById(id).get();
     }
 
+    @GetMapping("/{id}/songs")
+    public Iterable<Song> getSongsByAlbumId(@PathVariable Long id) {
+        return albumRepo.findById(id).get().getSongs();
+    }
+
     // Put to replace songs, etc.
     // Patch to edit part of song, etc.
     // Post to add a new song, etc.
@@ -46,26 +51,17 @@ public class AlbumController {
         return albumToChange;
     }
 
-    @PostMapping("")
+    @PostMapping("/addAlbum")
     public Iterable<Album> addAlbum(@RequestBody Album albumToAdd) {
-        if (!albumRepo.findById(albumToAdd.getId()).isPresent()) {
-
-            albumRepo.save(albumToAdd);
-        }
+        albumRepo.save(albumToAdd);
         return albumRepo.findAll();
     }
 
-    @PostMapping("/{id}")
-    public Iterable<Song> addSongToAlbum(@RequestBody Song songToAdd, @PathVariable Long id) {
-        if(songRepo.findById(id).isEmpty()) {
-            songToAdd.setAlbum(albumRepo.findById(id).get());
-            albumRepo.save(albumRepo.findById(id).get());
-            songRepo.save(songToAdd);
-
-
-        }
-
-        return albumRepo.findById(id).get().getSongs();
+    @PostMapping("/{id}/addSongToAlbum")
+    public Iterable<Song> addSongToAlbum(@PathVariable Long id, @RequestBody Song songToAdd) {
+        Album albumToAddSongTo = albumRepo.findById(id).get();
+        songRepo.save(songToAdd);
+        return albumToAddSongTo.getSongs();
     }
 
     @PatchMapping("/{id}/newAlbumTitle")
