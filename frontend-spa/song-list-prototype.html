@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 5 Project</title>
+    <link rel="stylesheet" href="/src/CSS/style.css">
+    <link rel="stylesheet" href="/src/CSS/layout.css">
+    <link rel="stylesheet" href="/src/CSS/audiovis.css">
+    <link rel="stylesheet" href="/src/css/albumanimation.css">
+    <link rel="stylesheet" href="/src/CSS/scrollbox.css">
+    <link rel="stylesheet" href="/src/CSS/buttons-comments.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" charset="utf-8"></script> -->
+</head>
+<header>
+    <img class="logo" src="/src/images/SODASHOPLOGO.png" alt=""></a>
+    <div class="nav">
+        <ul class="menu">
+            <!-- <li class="menu-item">
+                <a data-modal-target="modal" class="sub-btn" href="#">Miscelanious link <i></i> </a>
+                <ul class="info-modal-link">
+                    <li class="modal">
+                        <div class="modal-header">
+                            popup window
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa commodi minima facere in
+                            voluptates dolorum doloremque sequi impedit. Atque quo delectus non mollitia sed minus
+                            perferendis tempora suscipit maxime voluptatem?
+                        </div>
+                    </li>
+                    <div class="active" id="overlay"></div>
+                </ul>
+            </li> -->
+            <div id="overlay"></div>
+
+            <li class="menu-item">
+                <a class="sub-btn">About the Developers<i class="fas fa-angle-down"></i>
+                    <ul class="sub-menu">
+                        <li class="menu-item">About the Developers
+                </a>
+            </li>
+            <div class="space-items">
+                <li class="sub-item"><a href="#">Item</a>
+                    <a href="#">
+                        <img class="dropdown-images" src="#" alt="#">
+                    </a>
+                </li>
+            </div>
+            <div class="space-items">
+                <li class="sub-item"><a href="#">Item</a>
+                    <a href="#">
+                        <img class="dropdown-images" src="#" alt="#">
+                    </a>
+                </li>
+            </div>
+            <div class="space-items">
+                <li class="sub-item"><a href="#">Item</a>
+                    <a href="#">
+                        <img class="dropdown-images" src="#" alt="#">
+                    </a>
+                </li>
+            </div>
+            <div class="space-items">
+                <li class="sub-item"><a href="#">Item</a>
+                    <a href="#">
+                        <img class="dropdown-images" src="#" alt="#">
+                    </a>
+                </li>
+            </div>
+        </ul>
+        </li>
+        <!-- <li class="menu-item"><a href="#">Miscelanious Link</a></li> -->
+        </ul>
+    </div>
+</header>
+<br>
+
+<body id="exposedbrickbackground">
+    <div class="container">
+        <input type="file" id="thefile" accept="audio/*" />
+        <div id="content">
+
+            <audio id="audio" controls></audio>
+            <div id="view-screen">
+                <img class="logo" id="on-screen-logo" src="/src/images/SODASHOPLOGO.png" alt="">
+                <canvas id="canvas"></canvas>
+                <img id="touchtunes" src="/src/images/BLANK-TOUCHTUNES.png" alt="">
+                <canvas id="canvas"></canvas>
+                <a id="backbutton" href="#"><img id="backbuttonimg" src="/src/images/backbutton.png" alt=""></a>
+                <section class="projects">
+                    <div class="scrolling-box">
+                        <div id="album-info">
+                            <h3 id="artist-name">Artist: Brand New</h3>
+                            <h4 id="album-name">Album: Deja Entendu</h4>
+                            <h4 id="record-label">Record Label: TripleCrown</h4>
+                        </div>
+                        <div>
+                        <button class="change-album-name-button">Change Name</button>
+                        <input type="text" name="popup" id="popup" class="hide">
+                        
+                        <br>
+                        <button class="delete-album-button">Delete Album</button>
+                        <br>
+                        <button class="add-song-to-album-button">Add Song to Album</button>
+                    </div>
+                    <br>
+                    <br>
+                    <div>
+                        
+                        <section class="box-items"><a href="#"><img class="play-arrow" src="/src/images/play-arrow.webp" alt=""></a> Play Crack the Sky</section>
+                        <button class="change-song-name-button">Change Song Name</button>
+                        <button class="delete-song-button">Delete Song</button>
+                    </div>
+                    <div>
+                        <section class="box-items"><a href="#"><img class="play-arrow" src="/src/images/play-arrow.webp" alt=""></a> Glory Fades</section>
+                        <button class="change-song-name-button">Change Song Name</button>
+                        <button class="delete-song-button">Delete Song</button>
+                    </div>
+                    <div>
+                        <section class="box-items"><a href="#"><img class="play-arrow" src="/src/images/play-arrow.webp" alt=""></a> The Quiet Things that No One Ever Knows</section>
+                        <button class="change-song-name-button">Change Song Name</button>
+                        <button class="delete-song-button">Delete Song</button>
+                    </div>
+                    <div>
+                        <section class="box-items"><a href="#"><img class="play-arrow" src="/src/images/play-arrow.webp" alt=""></a> Me vs. Maradona vs. Elvis</section>
+                        <button class="change-song-name-button">Change Song Name</button>
+                        <button class="delete-song-button">Delete Song</button>
+                    </div>
+                    <div>
+                        <section class="box-items"><a href="#"><img class="play-arrow" src="/src/images/play-arrow.webp" alt=""></a> I Will Play the Game Beneath the Spin Light</section>
+                        <button class="change-song-name-button">Change Song Name</button>
+                        <button class="delete-song-button">Delete Song</button>
+                    </div>
+                    <div>
+                        <section class="box-items"><a href="#"><img class="play-arrow" src="/src/images/play-arrow.webp" alt=""></a> Jaws Theme Song</section>
+                        <button class="change-song-name-button">Change Song Name</button>
+                        <button class="delete-song-button">Delete Song</button>
+                    </div>
+                    <div>
+                        <section class="box-items"><a href="#"><img class="play-arrow" src="/src/images/play-arrow.webp" alt=""></a> Okay I believe you, but my tommy gun don't</section>
+                        <button class="change-song-name-button">Change Song Name</button>
+                        <button class="delete-song-button">Delete Song</button>
+                    </div>
+                    <div>
+                        <section class="box-items"><a href="#"><img class="play-arrow" src="/src/images/play-arrow.webp" alt=""></a> Guernica</section>
+                        <button class="change-song-name-button">Change Song Name</button>
+                        <button class="delete-song-button">Delete Song</button>
+                    </div>
+                    <br>
+                    <br>
+                    <input id="comment-box" class="rating-comment-submit" type="text"
+                        placeholder="write a comment here...">
+                    <br>
+                    <br>
+                    <input id="rating-box" class="rating-comment-submit" type="number" min="0" max="5"
+                        placeholder="Choose Rating">
+                    <br>
+                    <br>
+                    <input id="submit-button" type="submit">
+
+                    <!-- <div id="rating">
+                            <input id="rating-stars" class="rating" min="0" max="5"
+                                oninput="this.style.setProperty('--value', this.value)" step="0.5" type="range"
+                                value="1" name="rating">
+                            <p class="stars">
+                                <span class="star-checked">&#9733;</span>
+                                <span class="star-checked">&#9733;</span>
+                                <span class="star-checked">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </p>
+                            </input>
+                        </div> -->
+            </div>
+            </section>
+        </div>
+    </div>
+
+    </div>
+  
+    <script src="/src/js/app.js" type="module"></script>
+    <script src="/src/js/animation.js"></script>
+
+</body>
+<footer>BAAMP Developers at WCCI</footer>
+
+</html>

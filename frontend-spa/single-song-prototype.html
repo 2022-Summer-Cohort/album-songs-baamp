@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/src/CSS/layout.css">
     <link rel="stylesheet" href="/src/CSS/audiovis.css">
     <link rel="stylesheet" href="/src/css/albumanimation.css">
+    <link rel="stylesheet" href="/src/CSS/scrollbox.css">
+    <link rel="stylesheet" href="/src/CSS/buttons-comments.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" charset="utf-8"></script> -->
 </head>
@@ -81,56 +83,45 @@
     <div class="container">
         <input type="file" id="thefile" accept="audio/*" />
         <div id="content">
-            <audio id="audio" controls></audio>
            
+            <audio id="audio" controls></audio>
             <div id="view-screen">
                 <img class="logo" id="on-screen-logo" src="/src/images/SODASHOPLOGO.png" alt="">
-                <canvas id="canvas"></canvas>
                 <canvas id="canvas"></canvas>
                 <img id="touchtunes" src="/src/images/BLANK-TOUCHTUNES.png" alt="">
                 <canvas id="canvas"></canvas>
                 <a id="backbutton" href="#"><img id="backbuttonimg" src="/src/images/backbutton.png" alt=""></a>
                 <section class="projects">
-                    <div class="slider">
-                        <span class="album" style="--i:1;"><img class="album-cover" src="/src/images/Amon_Amarth_-_Twlight_of_the_Thunder_God.jpeg"
-                                onClick="document.getElementById('Twlight_of_the_Thunder_God').scrollIntoView();">
-                            </a>
-                        </span>
-                        <span class="album" style="--i:2;"><img class="album-cover" src="/src/images/ALLTHERIGHTREASONS.jpg"
-                                onClick="document.getElementById('ALLTHERIGHTREASONS').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});">
-                            </a>
-                            <p class="artist-name-home">Nickleback</p>
-                                <p class="album-name-home">All the Right Reasons</p>
-                        </span>
-                        <span class="album" style="--i:3;"><img class="album-cover" src="/src/images/DEJAENTENDU.jpg"
-                                onClick="document.getElementById('DEJAENTENDU').scrollIntoView();">
-                            </a>
-                        </span>
-                        <span class="album" style="--i:4;"><img class="album-cover" src="/src/images/AMERICANHEARTBREAK.jpg"
-                                onClick="document.getElementById('AMERICANHEARTBREAK').scrollIntoView();">
-                            </a>
-                        </span>
-                        <span class="album" style="--i:5;"><img class="album-cover" src="/src/images/WageWar_Blueprints.jpeg"
-                                onClick="document.getElementById('Blueprints').scrollIntoView();">
-                            </a>
-                        </span>
-                        <span class="album" style="--i:6;"><img class="album-cover" src="/src/images/Oh,Sleeper_COF.jpeg"
-                                onClick="document.getElementById('COF').scrollIntoView();">
-                            </a>
-                        </span>
-                        <!-- <span style="--i:7;"><img src="/src/images/WageWar_Blueprints.jpeg"
-                            onClick="document.getElementById('wordle-solver').scrollIntoView();">
-                        </a>
-                        </span> -->
-                    </span>
+                    <div class="scrolling-box">
+                        <div id="album-info">
+                            <h3 id="artist-name">Artist: Brand New</h3>
+                            <h4 id="album-name">Album: Deja Entendu</h4>
+                            <h4 id="record-label">Record Label: TripleCrown</h4>
+                        </div>
+                        <section class="box-items">Playing:</section>
+                        <section class="box-items">Play Crack the Sky</section>
+                        <br>
+                    <br>
+                    <input id="comment-box" class="rating-comment-submit" type="text" placeholder="write a comment here...">
+                    <br>
+                    <br>
+                    <input id="rating-box" class="rating-comment-submit" type="number" min="0" max="5" placeholder="Choose Rating">
+                    <br>
+                    <br>
+                    <input id="submit-button" type="submit">
                     </div>
+                    
                 </section>
+                
+                
+                
             </div>
         </div>
 
     </div>
     <script src="/src/js/app.js"></script>
     <script src="/src/js/animation.js"></script>
+    
 </body>
 <footer>BAAMP Developers at WCCI</footer>
 

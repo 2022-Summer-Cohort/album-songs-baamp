@@ -1,10 +1,10 @@
 export default function header(){
     return `
     <header>
-    <img class="logo" src="/src/js/images/SODASHOPLOGO.png" alt=""></a>
+    <img class="logo" src="/src/images/SODASHOPLOGO.png" alt=""></a>
     <div class="nav">
         <ul class="menu">
-            <li class="menu-item">
+            <!-- <li class="menu-item">
                 <a data-modal-target="modal" class="sub-btn" href="#">Miscelanious link <i></i> </a>
                 <ul class="info-modal-link">
                     <li class="modal">
@@ -20,11 +20,11 @@ export default function header(){
                     </li>
                     <div class="active" id="overlay"></div>
                 </ul>
-            </li>
+            </li> -->
             <div id="overlay"></div>
 
             <li class="menu-item">
-                <a class="sub-btn">Developers<i class="fas fa-angle-down"></i>
+                <a class="sub-btn">About the Developers<i class="fas fa-angle-down"></i>
                     <ul class="sub-menu">
                         <li class="menu-item">About the Developers
                 </a>
@@ -50,9 +50,16 @@ export default function header(){
                     </a>
                 </li>
             </div>
+            <div class="space-items">
+                <li class="sub-item"><a href="#">Item</a>
+                    <a href="#">
+                        <img class="dropdown-images" src="#" alt="#">
+                    </a>
+                </li>
+            </div>
         </ul>
         </li>
-        <li class="menu-item"><a href="#">Miscelanious Link</a></li>
+        <!-- <li class="menu-item"><a href="#">Miscelanious Link</a></li> -->
         </ul>
     </div>
 </header>`

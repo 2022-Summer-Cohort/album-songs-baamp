@@ -106,13 +106,19 @@ header .nav .menu{
 
 /* END HEADER CSS */
 
+#content{
+    display: flex;
+   justify-content: space-around;
+}
+
 #touchtunes{
     display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  /* width: 100%; */
     
 }
+
 footer{
     display:flex;
     justify-content: center;

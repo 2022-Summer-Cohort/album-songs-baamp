@@ -1,0 +1,141 @@
+
+.change-album-name-button{
+  background-color: #10B0FF;
+  border-radius: 5px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+  font-weight: 500;
+  font-size: 12px;
+}
+.delete-album-button{
+  background-color: #10B0FF;
+  border-radius: 5px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+  font-weight: 500;
+  font-size: 12px;
+}
+.add-song-to-album-button{
+  background-color: #10B0FF;
+  border-radius: 5px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+  font-weight: 500;
+  font-size: 12px;
+}
+.change-song-name-button{
+  background-color: #10B0FF;
+  border-radius: 5px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.delete-song-button{
+  background-color: #10B0FF;
+  border-radius: 5px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+#rating{
+    color: aliceblue;
+}
+/* .stars{
+    color: aliceblue;
+    backgro
+} */
+
+.rating-comment-submit{
+  background-color: lightgray;
+}
+#comment-box{
+  width: 100%;
+  box-sizing: border-box;
+   /* display: block;
+    width: 100px;
+    height: 200px;
+    padding: 1em;
+    overflow-y:auto;
+    /* text-align: center; */
+    
+}
+#rating-box{
+  width: 40%;
+}
+#submit-button{
+  background-color: lightgray;
+}
+
+.rating {
+  --dir: right;
+  --fill: gold;
+  --fillbg: rgba(100, 100, 100, 0.15);
+  --heart: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.328l-1.453-1.313q-2.484-2.25-3.609-3.328t-2.508-2.672-1.898-2.883-0.516-2.648q0-2.297 1.57-3.891t3.914-1.594q2.719 0 4.5 2.109 1.781-2.109 4.5-2.109 2.344 0 3.914 1.594t1.57 3.891q0 1.828-1.219 3.797t-2.648 3.422-4.664 4.359z"/></svg>');
+  --star: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.25l-6.188 3.75 1.641-7.031-5.438-4.734 7.172-0.609 2.813-6.609 2.813 6.609 7.172 0.609-5.438 4.734 1.641 7.031z"/></svg>');
+  --stars: 5;
+  --starsize: 1.75rem;
+  --symbol: var(--star);
+  --value: 1;
+  --w: calc(var(--stars) * var(--starsize));
+  --x: calc(100% * (var(--value) / var(--stars)));
+  block-size: var(--starsize);
+  inline-size: var(--w);
+  position: relative;
+  touch-action: manipulation;
+  -webkit-appearance: none;
+}
+
+
+/* .container {
+	max-width: 640px;
+	margin: 30px auto;
+	background: rgba(255, 255, 255, 0.774);
+	border-radius: 8px;
+	padding: 20px;
+}
+
+.comment {
+	display: block;
+	transition: all 1s;
+}
+.commentClicked {
+	min-height: 0px;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	padding: 5px 10px
+}
+
+.container textarea {
+	width: 100%;
+	border: none;
+	background: #E8E8E8;
+	padding: 5px 10px;
+	height: 50%;
+	border-radius: 5px 5px 0px 0px;
+	border-bottom: 2px solid #016BA8;
+	transition: all 0.5s;
+	margin-top: 15px;
+}
+
+button.primaryContained {
+	background: #016ba8;
+	color: #fff;
+	padding: 10px 10px;
+	border: none;
+	margin-top: 0px;
+	cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+	transition: 1s all;
+	font-size: 10px;
+	border-radius: 5px;
+}
+
+button.primaryContained:hover {
+	background: #9201A8;
+} */

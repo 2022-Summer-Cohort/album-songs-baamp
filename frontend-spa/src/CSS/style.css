@@ -94,5 +94,25 @@ color: white;
 
 /* END HEADER CSS */
 
+.album-name-home{
+  color: aliceblue;
+  font-size: smaller;
+  margin-top: 6px;
+}
+.artist-name-home{
+  color: aliceblue;
+  font-size: smaller;
+  margin-top: 155px;
+}
+.play-arrow{
+  height:25px;
+  width: 25px
+}
+.hide{
+  visibility: hidden;
+}
+.show{
+  visibility: visible;
+}
 
 

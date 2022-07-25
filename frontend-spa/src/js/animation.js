@@ -1,3 +1,6 @@
+export default function animation() {
+  return `
+
 window.onload = function() {
   
 
@@ -64,3 +67,5 @@ window.onload = function() {
       renderFrame();
     };
   };
+  `
+}
