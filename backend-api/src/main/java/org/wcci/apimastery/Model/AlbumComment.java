@@ -15,14 +15,13 @@ public class AlbumComment {
     @Lob
     private String body;
 
-    @ManyToOne
+    @ManyToOne @JsonIgnore
     private Album album;
 
-    public AlbumComment(String username, double rating, String body, Album album) {
+    public AlbumComment(String username, double rating, String body) {
         this.username = username;
         this.rating = rating;
         this.body = body;
-        this.album = album;
     }
 
     public AlbumComment() {
@@ -67,5 +66,9 @@ public class AlbumComment {
     @Override
     public int hashCode() {
         return Objects.hash(getId(), getUsername(), getRating(), getBody(), getAlbum());
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
     }
 }

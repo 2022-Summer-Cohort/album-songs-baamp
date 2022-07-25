@@ -85,7 +85,7 @@ public class AlbumController {
     @PostMapping("/{id}/newComment")
     public Album addCommentToAlbum(@RequestBody AlbumComment newComment, @PathVariable Long id) {
         Album albumToEdit = albumRepo.findById(id).get();
-        AlbumComment newAlbumComment = new AlbumComment(newComment.getUsername(), newComment.getRating(), newComment.getBody(), albumToEdit);
+        AlbumComment newAlbumComment = new AlbumComment(newComment.getUsername(), newComment.getRating(), newComment.getBody());
         albumCommentRepo.save(newAlbumComment);
 
         return albumRepo.findById(id).get();

@@ -3,6 +3,7 @@ package org.wcci.apimastery.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -16,17 +17,35 @@ public class Song {
     private String duration;
     private double avgRating;
 
-    @ManyToOne
+    @ManyToOne @JsonIgnore
     private Album album;
     @OneToMany(mappedBy = "song",cascade = CascadeType.ALL,orphanRemoval = true)
-    @JsonIgnore
     private Collection<SongComment> songComments;
 
-    public Song(String title, String linkUrl, String duration, Album album) {
+    public Song(String title, String linkUrl, String duration, SongComment comments) {
         this.title = title;
         this.linkUrl = linkUrl;
         this.duration = duration;
-        this.album = album;
+        this.songComments = Arrays.asList(comments);
+
+        this.avgRating = updateAverageRating();
+    }
+
+    private double updateAverageRating() {
+        if (songComments.size() == 0) {
+            return 0.0;
+        }
+
+        double sumRating = 0;
+
+        for (SongComment songComment : songComments) {
+            sumRating += songComment.getRating();
+        }
+
+        avgRating = sumRating / songComments.size();
+        avgRating = Math.round(avgRating *10.0) / 10.0;
+
+        return avgRating;
     }
 
     public Song() {

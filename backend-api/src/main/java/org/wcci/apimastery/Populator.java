@@ -28,10 +28,26 @@ public class Populator implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
+        AlbumComment test = new AlbumComment("t", 4.5, "t");
+        AlbumComment test2 = new AlbumComment("t", 3.0, "t");
+        AlbumComment test3 = new AlbumComment("t", 1.5, "t");
+
+
         Album dejaEntendu = new Album("Deja Entendu", "Brand New",
-                "https://upload.wikimedia.org/wikipedia/en/e/e0/BrandNew_SicTransitGloria.jpg");
+                "https://upload.wikimedia.org/wikipedia/en/e/e0/BrandNew_SicTransitGloria.jpg", test, test2, test3);
         dejaEntendu.addRecordLabel("Sore Point");
         albumRepo.save(dejaEntendu);
+
+        test.setAlbum(dejaEntendu);
+        test2.setAlbum(dejaEntendu);
+        test3.setAlbum(dejaEntendu);
+
+        albumCommentRepo.save(test);
+        albumCommentRepo.save(test2);
+        albumCommentRepo.save(test3);
+
+
         Album americanHeartbreak = new Album("American Heartbreak", "Zach Bryan",
                 "https://upload.wikimedia.org/wikipedia/en/thumb/0/08/Zach_Bryan_-_American_Heartbreak.png/220px-Zach_Bryan_-_American_Heartbreak.png");
         albumRepo.save(americanHeartbreak);
@@ -169,11 +185,11 @@ public class Populator implements CommandLineRunner {
         songCommentRepo.save(sC24);
         songCommentRepo.save(sC25);
         songCommentRepo.save(sC26);
-        AlbumComment nbComment = new AlbumComment("Rolling Stone", 1.5, "Nickelback's fifth disc consists of eleven giant-chorused songs about prisons of the mind, wanting to be a rock star and how it's hard to up and leave when she's going down on you. The band's wordy hooks and big riffs are as meticulously arranged as a thousand-dollar Nativity scene, but – with the exception of the sleekly rocking Animals and some hope-and-faith platitudes – All the Right Reasons is so depressing, you're almost glad Kurt's not around to hear it.", allTheRightReasons);
-        AlbumComment dEComment = new AlbumComment("Ali Shutler", 4.5, "In 2003 Brand New were just another pop-punk band from Long Island. Then came 'Deja Entendu'. Smart, sexy and bleak, it didn't just push the band into becoming the spotlight-shunning superstars that we both hate and adore today; it redefined a genre.", dejaEntendu);
-        AlbumComment aHComment = new AlbumComment("Holler Country", 4, "American Heartbreak sculpts the entire breadth of human experience, as Bryan stitches together songs of love, loss and life's fleeting nature with brilliant command.", americanHeartbreak);
-        albumCommentRepo.save(nbComment);
-        albumCommentRepo.save(dEComment);
-        albumCommentRepo.save(aHComment);
+//        AlbumComment nbComment = new AlbumComment("Rolling Stone", 1.5, "Nickelback's fifth disc consists of eleven giant-chorused songs about prisons of the mind, wanting to be a rock star and how it's hard to up and leave when she's going down on you. The band's wordy hooks and big riffs are as meticulously arranged as a thousand-dollar Nativity scene, but – with the exception of the sleekly rocking Animals and some hope-and-faith platitudes – All the Right Reasons is so depressing, you're almost glad Kurt's not around to hear it.", allTheRightReasons);
+//        AlbumComment dEComment = new AlbumComment("Ali Shutler", 4.5, "In 2003 Brand New were just another pop-punk band from Long Island. Then came 'Deja Entendu'. Smart, sexy and bleak, it didn't just push the band into becoming the spotlight-shunning superstars that we both hate and adore today; it redefined a genre.", dejaEntendu);
+//        AlbumComment aHComment = new AlbumComment("Holler Country", 4, "American Heartbreak sculpts the entire breadth of human experience, as Bryan stitches together songs of love, loss and life's fleeting nature with brilliant command.", americanHeartbreak);
+//        albumCommentRepo.save(nbComment);
+//        albumCommentRepo.save(dEComment);
+//        albumCommentRepo.save(aHComment);
     }
 }
