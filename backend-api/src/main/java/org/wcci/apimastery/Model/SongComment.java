@@ -18,11 +18,10 @@ public class SongComment {
     @ManyToOne @JsonIgnore
     private Song song;
 
-    public SongComment(String username, double rating, String body, Song song) {
+    public SongComment(String username, double rating, String body) {
         this.username = username;
         this.rating = rating;
         this.body = body;
-        this.song = song;
     }
 
     public SongComment() {
@@ -54,6 +53,10 @@ public class SongComment {
 
     public void changeBody(String newBody) {
         body = newBody;
+    }
+
+    public void setSong(Song song) {
+        this.song = song;
     }
 
     @Override

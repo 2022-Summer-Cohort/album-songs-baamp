@@ -22,7 +22,7 @@ public class Song {
     @OneToMany(mappedBy = "song",cascade = CascadeType.ALL,orphanRemoval = true)
     private Collection<SongComment> songComments;
 
-    public Song(String title, String linkUrl, String duration, SongComment comments) {
+    public Song(String title, String linkUrl, String duration, SongComment... comments) {
         this.title = title;
         this.linkUrl = linkUrl;
         this.duration = duration;

@@ -57,7 +57,8 @@ public class SongController {
     @PostMapping("/{id}/newComment")
     public Song addCommentToSong(@RequestBody SongComment newComment, @PathVariable Long id) {
         Song songToEdit = songRepo.findById(id).get();
-        SongComment newSongComment = new SongComment(newComment.getUsername(), newComment.getRating(), newComment.getBody(), songToEdit);
+        SongComment newSongComment = new SongComment(newComment.getUsername(), newComment.getRating(), newComment.getBody());
+        newSongComment.setSong(songToEdit);
         songCommentRepo.save(newSongComment);
         return songRepo.findById(id).get();
     }
