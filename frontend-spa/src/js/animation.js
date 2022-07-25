@@ -1,4 +1,4 @@
-export function animation() {
+export default function animation() {
   return `
 
 window.onload = function() {

@@ -15,35 +15,13 @@ export default function home() {
                 <a id="backbutton" href="#"><img id="backbuttonimg" src="/src/images/backbutton.png" alt=""></a>
                 <section class="projects">
                     <div class="slider">
-                        <span style="--i:1;"><img src="/src/images/Amon_Amarth_-_Twlight_of_the_Thunder_God.jpeg"
-                                onClick="document.getElementById('album-site').scrollIntoView();">
-                            </a>
-                        </span>
-                        <span style="--i:2;"><img src="/src/images/ALLTHERIGHTREASONS.jpg"
-                                onClick="document.getElementById('cookie-clicker').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});">
-                            </a>
-                        </span>
-                        <span style="--i:3;"><img src="/src/images/DEJAENTENDU.jpg"
-                                onClick="document.getElementById('review-site').scrollIntoView();">
-                            </a>
-                        </span>
-                        <span style="--i:4;"><img src="/src/images/AMERICANHEARTBREAK.jpg"
-                                onClick="document.getElementById('virtual-pet').scrollIntoView();">
-                            </a>
-                        </span>
-                        <span style="--i:5;"><img src="/src/images/WageWar_Blueprints.jpeg"
-                                onClick="document.getElementById('wordle-solver').scrollIntoView();">
-                            </a>
-                        </span>
-                        <span style="--i:6;"><img src="/src/images/Oh,Sleeper_COF.jpeg"
-                                onClick="document.getElementById('wordle-solver').scrollIntoView();">
-                            </a>
-                        </span>
-                        <!-- <span style="--i:7;"><img src="/src/images/WageWar_Blueprints.jpeg"
-                            onClick="document.getElementById('wordle-solver').scrollIntoView();">
-                        </a>
-                        </span> -->
-                    </span>
+            <span class="album" style="--i:2;"><img class="album-cover" src="/src/images/ALLTHERIGHTREASONS.jpg"
+                    onClick="document.getElementById('ALLTHERIGHTREASONS').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});">
+                </a>
+                <p class="artist-name-home">Nickleback</p>
+                                <p class="album-name-home">All the Right Reasons</p>
+            </span>
+           
                     </div>
                 </section>
             </div>
