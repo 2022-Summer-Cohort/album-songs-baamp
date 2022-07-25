@@ -99,10 +99,11 @@
   }
   #canvas{
     /* grid-area: 1 / 2 / 2 / 3; */
-    position: absolute; 
-    margin-top: 90px;
-    margin-right: 6%;
-    margin-left: 11%;
+    display: block;
+    grid-area: 1 / 2 / 2 / 3;
+    margin-left: 145px;
+    margin-top: 87px;
+    z-index: 99;
     /* right: 250px;
     left: 250px;
     margin-top: 90px;

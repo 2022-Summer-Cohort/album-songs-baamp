@@ -28,6 +28,7 @@
     /* background:rgba(50, 157, 245, 0.89); */
     border-radius: 6px;
   }
+ 
   
   #album-info{
     display: flex;
@@ -36,7 +37,7 @@
     color: aliceblue;
     font-size: 30px;
     margin-bottom: 30px;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     
   }
   
