@@ -80,4 +80,10 @@ public class SongController {
         return songCommentRepo.findAll();
     }
 
+    @DeleteMapping("/{id}")
+    public Iterable<Song> deleteSongFromAlbum(@PathVariable Long id) {
+        songRepo.deleteById(id);
+        return songRepo.findAll();
+    }
+
 }

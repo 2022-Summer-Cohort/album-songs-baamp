@@ -30,7 +30,6 @@ public class Populator implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Album dejaEntendu = new Album("Deja Entendu", "Brand New",
                 "https://upload.wikimedia.org/wikipedia/en/e/e0/BrandNew_SicTransitGloria.jpg");
-        albumRepo.save(dejaEntendu);
         dejaEntendu.addRecordLabel("Sore Point");
         albumRepo.save(dejaEntendu);
         Album americanHeartbreak = new Album("American Heartbreak", "Zach Bryan",

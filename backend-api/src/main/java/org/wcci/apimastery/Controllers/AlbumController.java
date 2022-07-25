@@ -109,4 +109,11 @@ public class AlbumController {
         return albumCommentRepo.findAll();
     }
 
+    @DeleteMapping("/{id}")
+    public Iterable<Album> deleteAlbumById(@PathVariable Long id){
+        albumRepo.deleteById(id);
+        return albumRepo.findAll();
+    }
+
+
 }

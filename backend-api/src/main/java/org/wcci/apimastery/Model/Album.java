@@ -16,10 +16,10 @@ public class Album {
     private double avgRating;
     private String recordLabel;
 
-    @OneToMany(mappedBy = "album")
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private Collection<Song> songs;
-    @OneToMany(mappedBy = "album")
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private Collection<AlbumComment> albumComments;
 

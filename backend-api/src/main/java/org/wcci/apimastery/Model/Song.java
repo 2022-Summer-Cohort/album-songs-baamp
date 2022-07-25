@@ -18,7 +18,7 @@ public class Song {
 
     @ManyToOne
     private Album album;
-    @OneToMany(mappedBy = "song")
+    @OneToMany(mappedBy = "song",cascade = CascadeType.ALL,orphanRemoval = true)
     @JsonIgnore
     private Collection<SongComment> songComments;
 
