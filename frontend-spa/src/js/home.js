@@ -1,4 +1,5 @@
-export default function home() {
+export default function home(albums) {
+    let albumCount = 1;
     return `
     <body id="exposedbrickbackground">
     <div class="container">
@@ -16,16 +17,24 @@ export default function home() {
                 
                 <section class="projects">
                     <div class="slider">
-                    <span id="addAlbumButton" class="album" style="--i:1;"><img class="album-cover" src="/src/images/add-album-button.png"
-                            onClick="document.getElementById('COF').scrollIntoView();">
+                    <span id="addAlbumButton" class="album" style="--i:1;"><img class="album-cover" src="/src/images/add-album-button.png">
                         </a>
+                        <p class="artist-name-home">Add Album</p>
                     </span>
-            <span class="album" style="--i:${};"><img class="album-cover" src="/src/images/ALLTHERIGHTREASONS.jpg"
-                    onClick="document.getElementById('ALLTHERIGHTREASONS').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});">
+                    ${albums.map(album => {
+                        albumCount++;
+                        return `
+                        <span class="album" style="--i:${albumCount};"><img class="album-cover" src="${album.imgUrl}">
                 </a>
-                <p class="artist-name-home">Nickleback</p>
-                                <p class="album-name-home">All the Right Reasons</p>
+                <p class="artist-name-home">Artist: ${album.artistName}</p>
+                                <p class="album-name-home">Album: ${album.title}</p>
             </span>
+                        `
+    
+                    })
+                .join("")
+                }
+            
            
                     </div>
                 </section>
@@ -51,13 +60,9 @@ export default function home() {
                     <input id="submitAlbumButton" type="submit">
                     
                     
-                    <button type="button" onclick="hideSocials()">Dismiss</button>
+                    <button id="dismissButton" type="button">Dismiss</button>
                 </div>
-</div>
+            </div>
         </div>
-
-    </div>
-    <script src="/src/js/app.js"></script>
-    <script src="/src/js/animation.js"></script>
-</body>`
+`
 }
