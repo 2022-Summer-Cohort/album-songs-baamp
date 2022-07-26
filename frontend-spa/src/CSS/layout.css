@@ -119,6 +119,54 @@ header .nav .menu{
     
 }
 
+.popup {
+    
+    display: block;
+    grid-area: 1 / 2 / 2 / 3;
+    width: 600px;
+    background: rgb(20, 20, 20);
+    border-radius: 6px;
+    position: absolute;
+    top: 600px;
+    left: 47%;
+    transform: translate(-50%, -50%) scale(1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: white;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+    z-index: 2000;
+}
+.open-popup {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+.popup #image {
+    width: 80px;
+    height: auto;
+    margin-top: -40px;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); */
+}
+.popup h2 {
+    font-size: 38px;
+    font-weight: 400;
+    margin: 30px 0 10px;
+}
+.popup button {
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: #D16839;
+    color: white;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+
 footer{
     display:flex;
     justify-content: center;

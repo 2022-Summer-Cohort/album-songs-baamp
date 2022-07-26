@@ -77,7 +77,7 @@
 </header>
 <br>
 
-<body id="exposedbrickbackground">
+<body>
     <div class="container">
         <input type="file" id="thefile" accept="audio/*" />
         <div id="content">
@@ -90,34 +90,41 @@
                 <img id="touchtunes" src="/src/images/BLANK-TOUCHTUNES.png" alt="">
                 <canvas id="canvas"></canvas>
                 <a id="backbutton" href="#"><img id="backbuttonimg" src="/src/images/backbutton.png" alt=""></a>
+                <!-- <a id="addAlbumButton" href="#"><img id="addAlbumButtonImg" src="/src/images/add-album-button.png" alt=""></a> -->
                 <section class="projects">
                     <div class="slider">
                         <span class="album" style="--i:1;"><img class="album-cover" src="/src/images/Amon_Amarth_-_Twlight_of_the_Thunder_God.jpeg"
                                 onClick="document.getElementById('Twlight_of_the_Thunder_God').scrollIntoView();">
-                            </a>
+                            
                         </span>
                         <span class="album" style="--i:2;"><img class="album-cover" src="/src/images/ALLTHERIGHTREASONS.jpg"
                                 onClick="document.getElementById('ALLTHERIGHTREASONS').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});">
-                            </a>
+                           
                             <p class="artist-name-home">Nickleback</p>
                                 <p class="album-name-home">All the Right Reasons</p>
                         </span>
                         <span class="album" style="--i:3;"><img class="album-cover" src="/src/images/DEJAENTENDU.jpg"
                                 onClick="document.getElementById('DEJAENTENDU').scrollIntoView();">
-                            </a>
+                            
                         </span>
                         <span class="album" style="--i:4;"><img class="album-cover" src="/src/images/AMERICANHEARTBREAK.jpg"
                                 onClick="document.getElementById('AMERICANHEARTBREAK').scrollIntoView();">
-                            </a>
+                            
                         </span>
                         <span class="album" style="--i:5;"><img class="album-cover" src="/src/images/WageWar_Blueprints.jpeg"
                                 onClick="document.getElementById('Blueprints').scrollIntoView();">
-                            </a>
+                           
                         </span>
                         <span class="album" style="--i:6;"><img class="album-cover" src="/src/images/Oh,Sleeper_COF.jpeg"
                                 onClick="document.getElementById('COF').scrollIntoView();">
-                            </a>
+                           
                         </span>
+                    
+                        <span  class="album" style="--i:7;"><button type="button" id="addAlbumButton"><img class="album-cover" src="/src/images/add-album-button.png"
+                            ></button>
+                        
+                    
+                    </span>
                         <!-- <span style="--i:7;"><img src="/src/images/WageWar_Blueprints.jpeg"
                             onClick="document.getElementById('wordle-solver').scrollIntoView();">
                         </a>
@@ -125,11 +132,38 @@
                     </span>
                     </div>
                 </section>
-            </div>
+                <div class="popup" id="popup">
+                    
+                    <h2>Add Album</h2>
+                    <input id="album-title" class="rating-comment-submit" type="text"
+                        placeholder="Title...">
+                    <br>
+                    <br>
+                    <input id="artist-name" class="rating-comment-submit" type="text" 
+                        placeholder="Artist Name">
+                    <br>
+                    <br>
+                    <input id="album-image-url" class="rating-comment-submit" type="text" 
+                        placeholder="Image Link (URL)">
+                    <br>
+                    <br>
+                    <input id="record-label" class="rating-comment-submit" type="text" 
+                        placeholder="Record Label (optional)">
+                    <br>
+                    <br>
+                    <input id="submitAlbumButton" type="submit">
+                    
+                    
+                    <button type="button">Dismiss</button>
+                </div>
+       
         </div>
+            </div>
+            </div>
+            
 
     </div>
-    <script src="/src/js/app.js"></script>
+    <script src="/src/js/app.js" type="module"></script>
     <script src="/src/js/animation.js"></script>
 </body>
 <footer>BAAMP Developers at WCCI</footer>
