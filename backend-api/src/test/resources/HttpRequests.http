@@ -24,7 +24,7 @@ Content-Type: application/json
 POST http://localhost:8080/api/albums/2/addSongToAlbum
 Content-Type: application/json
 
-{"id": 2, "title":  "Photograph (Live in ATL)", "linkUrl": "#", "duration": "4:40"}
+{"id": 1, "title":  "Photograph (Live in ATL)", "linkUrl": "#", "duration": "4:40"}
 
 ### get album songs
 GET http://localhost:8080/api/albums/2/songs
@@ -38,3 +38,8 @@ Content-Type: application/json
 DELETE http://localhost:8080/api/songs/4
 Content-Type: application/json
 
+### Add an album comment
+POST http://localhost:8080/api/albums/1/newComment
+Content-Type: application/json
+
+{"username": "Blake", "rating": 1.4, "body": "oh jeez, this guy stinks"}

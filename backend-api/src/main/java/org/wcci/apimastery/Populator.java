@@ -18,8 +18,7 @@ public class Populator implements CommandLineRunner {
     private SongRepository songRepo;
     private SongCommentRepository songCommentRepo;
 
-    public Populator(AlbumRepository albumRepo, AlbumCommentRepository albumCommentRepo,
-                     SongRepository songRepo, SongCommentRepository songCommentRepo) {
+    public Populator(AlbumRepository albumRepo, AlbumCommentRepository albumCommentRepo, SongRepository songRepo, SongCommentRepository songCommentRepo) {
         this.albumRepo = albumRepo;
         this.albumCommentRepo = albumCommentRepo;
         this.songRepo = songRepo;
@@ -29,6 +28,9 @@ public class Populator implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         AlbumComment dEComment = new AlbumComment("Ali Shutler", 4.5, "In 2003 Brand New were just another pop-punk band from Long Island. Then came 'Deja Entendu'. Smart, sexy and bleak, it didn't just push the band into becoming the spotlight-shunning superstars that we both hate and adore today; it redefined a genre.");
+        AlbumComment dEComment2 = new AlbumComment("Ali Shutler", 5.0, "In 2003 Brand New were just another pop-punk band from Long Island. Then came 'Deja Entendu'. Smart, sexy and bleak, it didn't just push the band into becoming the spotlight-shunning superstars that we both hate and adore today; it redefined a genre.");
+        AlbumComment dEComment3 = new AlbumComment("Ali Shutler", 2.3, "In 2003 Brand New were just another pop-punk band from Long Island. Then came 'Deja Entendu'. Smart, sexy and bleak, it didn't just push the band into becoming the spotlight-shunning superstars that we both hate and adore today; it redefined a genre.");
+        AlbumComment dEComment4 = new AlbumComment("Ali Shutler", 1.0, "In 2003 Brand New were just another pop-punk band from Long Island. Then came 'Deja Entendu'. Smart, sexy and bleak, it didn't just push the band into becoming the spotlight-shunning superstars that we both hate and adore today; it redefined a genre.");
         Song song1 = new Song("Tautou", "#", "1:42");
         Song song4 = new Song("Okay I Believe You, but My Tommy Gun Don't", "#", "5:35");
         Song song7 = new Song("Jaws Theme Swimming", "#", "4:34");
@@ -37,24 +39,27 @@ public class Populator implements CommandLineRunner {
         Song song8 = new Song("Me vs. Maradona vs. Elvis", "#", "5:19");
         Song song3 = new Song("I Will Play My Game Beneath The Spin Light", "#", "3:57");
         Song song6 = new Song("The Boy Who Blocked His Own Shot", "#", "4:39");
-        Song song9 = new Song("Guernica", "#", "3:24");SongComment sC1 = new SongComment("Bubba", 3.5, "This song was life changing! We played it at my son's barmitzvah!");
+        Song song9 = new Song("Guernica", "#", "3:24");
+        SongComment sC1 = new SongComment("Bubba", 3.5, "This song was life changing! We played it at my son's barmitzvah!");
         SongComment sC2 = new SongComment("Bubba", 3.5, "This song was life changing! We played it at my son's barmitzvah!");
-        SongComment sC3 = new SongComment("Bubba", 3.5, "This song was life changing! We played it at my son's barmitzvah!");
-        SongComment sC4 = new SongComment("Bubba", 3.5, "This song was life changing! We played it at my son's barmitzvah!");
-        SongComment sC5 = new SongComment("Bubba", 3.5, "This song was life changing! We played it at my son's barmitzvah!");
-        SongComment sC6 = new SongComment("Bubba", 3.5, "This song was life changing! We played it at my son's barmitzvah!");
-        SongComment sC7 = new SongComment("Bubba", 3.5, "This song was life changing! We played it at my son's barmitzvah!");
-        SongComment sC8 = new SongComment("Bubba", 3.5, "This song was life changing! We played it at my son's barmitzvah!");
-        SongComment sC9 = new SongComment("Bubba", 3.5, "This song was life changing! We played it at my son's barmitzvah!");
+        SongComment sC3 = new SongComment("Bubba", 1.5, "This song was life changing! We played it at my son's barmitzvah!");
+        SongComment sC4 = new SongComment("Bubba", 2.5, "This song was life changing! We played it at my son's barmitzvah!");
+        SongComment sC5 = new SongComment("Bubba", 5.0, "This song was life changing! We played it at my son's barmitzvah!");
+        SongComment sC6 = new SongComment("Bubba", 4.5, "This song was life changing! We played it at my son's barmitzvah!");
+        SongComment sC7 = new SongComment("Bubba", 2.3, "This song was life changing! We played it at my son's barmitzvah!");
+        SongComment sC8 = new SongComment("Bubba", 4.1, "This song was life changing! We played it at my son's barmitzvah!");
+        SongComment sC9 = new SongComment("Bubba", 1.7, "This song was life changing! We played it at my son's barmitzvah!");
 
-        Album dejaEntendu = new Album("Deja Entendu", "Brand New",
-                "https://upload.wikimedia.org/wikipedia/en/e/e0/BrandNew_SicTransitGloria.jpg", dEComment);
+        Album dejaEntendu = new Album("Deja Entendu", "Brand New", "https://upload.wikimedia.org/wikipedia/en/e/e0/BrandNew_SicTransitGloria.jpg", dEComment, dEComment2, dEComment3, dEComment4);
         dejaEntendu.addRecordLabel("Sore Point");
 
         // Save the album
         albumRepo.save(dejaEntendu);
         // Set the SongComment album
         dEComment.setAlbum(dejaEntendu);
+        dEComment2.setAlbum(dejaEntendu);
+        dEComment3.setAlbum(dejaEntendu);
+        dEComment4.setAlbum(dejaEntendu);
         // Set Songs albums
         song1.setAlbum(dejaEntendu);
         song4.setAlbum(dejaEntendu);
@@ -77,6 +82,9 @@ public class Populator implements CommandLineRunner {
         sC9.setSong(song9);
         // Save AlbumComments
         albumCommentRepo.save(dEComment);
+        albumCommentRepo.save(dEComment2);
+        albumCommentRepo.save(dEComment3);
+        albumCommentRepo.save(dEComment4);
         // Save Songs
         songRepo.save(song1);
         songRepo.save(song2);
@@ -97,8 +105,7 @@ public class Populator implements CommandLineRunner {
         songCommentRepo.save(sC7);
         songCommentRepo.save(sC8);
         songCommentRepo.save(sC9);
-//        --------------------------------------------------------------------------------
-
+//      --------------------------------------------------------------------------------
         AlbumComment aHComment = new AlbumComment("Holler Country", 4, "American Heartbreak sculpts the entire breadth of human experience, as Bryan stitches together songs of love, loss and life's fleeting nature with brilliant command.");
         Song aH1 = new Song("Late July", "#", "2:59");
         Song aH2 = new Song("Heavy Eyes", "#", "3:11");
@@ -218,24 +225,6 @@ public class Populator implements CommandLineRunner {
         songCommentRepo.save(sC24);
         songCommentRepo.save(sC25);
         songCommentRepo.save(sC26);
-
-
-//        --------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        albumCommentRepo.save(nbComment);
-//        albumCommentRepo.save(dEComment);
-//        albumCommentRepo.save(aHComment);
+//      --------------------------------------------------------------------------------------
     }
 }

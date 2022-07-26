@@ -32,10 +32,6 @@ public class Song {
     }
 
     private double updateAverageRating() {
-        if (songComments.size() == 0) {
-            return 0.0;
-        }
-
         double sumRating = 0;
 
         for (SongComment songComment : songComments) {

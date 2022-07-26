@@ -86,9 +86,13 @@ public class AlbumController {
     public Album addCommentToAlbum(@RequestBody AlbumComment newComment, @PathVariable Long id) {
         Album albumToEdit = albumRepo.findById(id).get();
         AlbumComment newAlbumComment = new AlbumComment(newComment.getUsername(), newComment.getRating(), newComment.getBody());
-        albumCommentRepo.save(newAlbumComment);
+        newAlbumComment.setAlbum(albumToEdit);
+        albumToEdit.updateAverageRating();
 
-        return albumRepo.findById(id).get();
+        albumCommentRepo.save(newAlbumComment);
+        albumRepo.save(albumToEdit);
+
+        return albumToEdit;
     }
 
     @PatchMapping("/{id}/editAlbumCommentRating")
