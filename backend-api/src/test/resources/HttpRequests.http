@@ -18,7 +18,7 @@ Content-Type: application/json
 POST http://localhost:8080/api/albums/addAlbum
 Content-Type: application/json
 
-{"title": "Barney and Friends", "artistName": "Barney", "imgUrl": "https://static.wikia.nocookie.net/iannielli-legend/images/2/2c/Barney.jpg/revision/latest?cb=20150525032725"}
+{"title": "Barney and Friends", "artistName": "Barney", "imgUrl": "https://static.wikia.nocookie.net/iannielli-legend/images/2/2c/Barney.jpg/revision/latest?cb=20150525032725", "recordLabel": "#"}
 
 ### Add a song to an album
 POST http://localhost:8080/api/albums/2/addSongToAlbum

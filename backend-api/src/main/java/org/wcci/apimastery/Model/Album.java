@@ -21,10 +21,11 @@ public class Album {
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<AlbumComment> albumComments;
 
-    public Album(String title, String artistName, String imgUrl, AlbumComment... comments) {
+    public Album(String title, String artistName, String imgUrl, String recordLabel, AlbumComment... comments) {
         this.title = title;
         this.artistName = artistName;
         this.imgUrl = imgUrl;
+        this.recordLabel = recordLabel;
         this.albumComments = Arrays.asList(comments);
 
         this.avgRating = updateAverageRating();
@@ -34,7 +35,6 @@ public class Album {
     public Album() {
     }
 
-    public void addRecordLabel(String newRecordLabel) { recordLabel = newRecordLabel; }
     public String getArtistName() {
         return artistName;
     }

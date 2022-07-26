@@ -55,6 +55,10 @@ public class AlbumComment {
         body = newBody;
     }
 
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -66,9 +70,5 @@ public class AlbumComment {
     @Override
     public int hashCode() {
         return Objects.hash(getId(), getUsername(), getRating(), getBody(), getAlbum());
-    }
-
-    public void setAlbum(Album album) {
-        this.album = album;
     }
 }

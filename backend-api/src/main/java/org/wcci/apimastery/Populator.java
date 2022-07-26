@@ -50,8 +50,8 @@ public class Populator implements CommandLineRunner {
         SongComment sC8 = new SongComment("Bubba", 4.1, "This song was life changing! We played it at my son's barmitzvah!");
         SongComment sC9 = new SongComment("Bubba", 1.7, "This song was life changing! We played it at my son's barmitzvah!");
 
-        Album dejaEntendu = new Album("Deja Entendu", "Brand New", "https://upload.wikimedia.org/wikipedia/en/e/e0/BrandNew_SicTransitGloria.jpg", dEComment, dEComment2, dEComment3, dEComment4);
-        dejaEntendu.addRecordLabel("Sore Point");
+        Album dejaEntendu = new Album("Deja Entendu", "Brand New", "https://upload.wikimedia.org/wikipedia/en/e/e0/BrandNew_SicTransitGloria.jpg", "Sore Point", dEComment, dEComment2, dEComment3, dEComment4);
+//        dejaEntendu.addRecordLabel();
 
         // Save the album
         albumRepo.save(dejaEntendu);
@@ -121,7 +121,7 @@ public class Populator implements CommandLineRunner {
         SongComment sC15= new SongComment("Bubba", 3.5, "This song was life changing! We played it at my son's barmitzvah!");
 
         Album americanHeartbreak = new Album("American Heartbreak", "Zach Bryan",
-                "https://upload.wikimedia.org/wikipedia/en/thumb/0/08/Zach_Bryan_-_American_Heartbreak.png/220px-Zach_Bryan_-_American_Heartbreak.png", aHComment);
+                "https://upload.wikimedia.org/wikipedia/en/thumb/0/08/Zach_Bryan_-_American_Heartbreak.png/220px-Zach_Bryan_-_American_Heartbreak.png", "", aHComment);
         albumRepo.save(americanHeartbreak);
 
         aHComment.setAlbum(americanHeartbreak);
@@ -176,8 +176,8 @@ public class Populator implements CommandLineRunner {
         SongComment sC26= new SongComment("Bubba", 3.5, "This song was life changing! We played it at my son's barmitzvah!");
 
         Album allTheRightReasons = new Album("All the Right Reasons", "Nickelback",
-                "https://dancingbear.hr/wp-content/uploads/2018/07/nickl-78.jpeg.jpg", nbComment);
-        allTheRightReasons.addRecordLabel("Roadrunner");
+                "https://dancingbear.hr/wp-content/uploads/2018/07/nickl-78.jpeg.jpg", "Roadrunner", nbComment);
+//        allTheRightReasons.addRecordLabel();
 
         nbComment.setAlbum(allTheRightReasons);
         nbSong1.setAlbum(allTheRightReasons);
