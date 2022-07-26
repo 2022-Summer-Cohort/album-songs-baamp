@@ -85,10 +85,14 @@ public class AlbumController {
     @PostMapping("/{id}/newComment")
     public Album addCommentToAlbum(@RequestBody AlbumComment newComment, @PathVariable Long id) {
         Album albumToEdit = albumRepo.findById(id).get();
-        AlbumComment newAlbumComment = new AlbumComment(newComment.getUsername(), newComment.getRating(), newComment.getBody(), albumToEdit);
-        albumCommentRepo.save(newAlbumComment);
+        AlbumComment newAlbumComment = new AlbumComment(newComment.getUsername(), newComment.getRating(), newComment.getBody());
+        newAlbumComment.setAlbum(albumToEdit);
+        albumToEdit.updateAverageRating();
 
-        return albumRepo.findById(id).get();
+        albumCommentRepo.save(newAlbumComment);
+        albumRepo.save(albumToEdit);
+
+        return albumToEdit;
     }
 
     @PatchMapping("/{id}/editAlbumCommentRating")

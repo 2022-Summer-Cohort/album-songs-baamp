@@ -17,16 +17,17 @@ public class Album {
     private String recordLabel;
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
     private Collection<Song> songs;
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
     private Collection<AlbumComment> albumComments;
 
-    public Album(String title, String artistName, String imgUrl) {
+    public Album(String title, String artistName, String imgUrl, AlbumComment... comments) {
         this.title = title;
         this.artistName = artistName;
         this.imgUrl = imgUrl;
+        this.albumComments = Arrays.asList(comments);
+
+        this.avgRating = updateAverageRating();
     }
 
 
@@ -66,7 +67,7 @@ public class Album {
         return albumComments;
     }
 
-    public void updateAverageRating() {
+    public double updateAverageRating() {
         double sumRating = 0;
 
         for (AlbumComment albumComment : albumComments) {
@@ -75,6 +76,8 @@ public class Album {
 
         avgRating = sumRating / albumComments.size();
         avgRating = Math.round(avgRating *10.0) / 10.0;
+
+        return avgRating;
     }
 
     public void changeTitle(String newTitle) {
