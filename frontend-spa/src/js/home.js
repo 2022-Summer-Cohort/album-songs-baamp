@@ -17,17 +17,24 @@ export default function home(albums) {
                 
                 <section class="projects">
                     <div class="slider">
-                    <span id="addAlbumButton" class="album" style="--i:1;"><img class="album-cover" src="/src/images/add-album-button.png">
-                        </a>
+                    <span id="addAlbumButton" class="addAlbum" style="--i:1;"><img class="add-album-cover" src="/src/images/addButtonVector.png">
+                        
                         <p class="artist-name-home">Add Album</p>
                     </span>
                     ${albums.map(album => {
                         albumCount++;
                         return `
-                        <span class="album" style="--i:${albumCount};"><img class="album-cover" src="${album.imgUrl}">
-                </a>
+                        <span class="album" style="--i:${albumCount};">
+                        <figure>
+                        <img class="album-cover" src="${album.imgUrl}">
+                        <button class="delete-album-button">&#128465</button>
+                </figure>
+                <input type="hidden" class="id-field" value="${album.id}">
+                
                 <p class="artist-name-home">Artist: ${album.artistName}</p>
                                 <p class="album-name-home">Album: ${album.title}</p>
+                              
+                                
             </span>
                         `
     
@@ -39,7 +46,7 @@ export default function home(albums) {
                     </div>
                 </section>
                 <div class="popup" id="popup">
-                    
+                <button id="dismissButton" type="button">&#10006</button>
                     <h2>Add Album</h2>
                     <input id="album-title" class="rating-comment-submit" type="text"
                         placeholder="Title...">
@@ -60,7 +67,7 @@ export default function home(albums) {
                     <input id="submitAlbumButton" type="submit">
                     
                     
-                    <button id="dismissButton" type="button">Dismiss</button>
+                    
                 </div>
             </div>
         </div>

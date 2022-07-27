@@ -126,9 +126,9 @@ header .nav .menu{
     width: 600px;
     background: rgb(20, 20, 20);
     border-radius: 6px;
-    position: absolute;
-    top: 600px;
-    left: 47%;
+    position: relative;
+    top: 430px;
+    left: 50%;
     transform: translate(-50%, -50%) scale(1);
     text-align: center;
     padding: 0 30px 30px;
@@ -139,8 +139,9 @@ header .nav .menu{
 }
 .open-popup {
     visibility: visible;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(1);
+    /* top: 100%; */
+    /* transform: translate(-50%, -50%) scale(1); */
+    
 }
 .popup #image {
     width: 80px;
@@ -153,11 +154,11 @@ header .nav .menu{
     font-weight: 400;
     margin: 30px 0 10px;
 }
-.popup button {
+#submitAlbumButton {
     width: 100%;
     margin-top: 50px;
     padding: 10px 0;
-    background: #D16839;
+    background: #10B0FF;
     color: white;
     border: 0;
     outline: none;
@@ -165,6 +166,17 @@ header .nav .menu{
     border-radius: 4px;
     cursor: pointer;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+.popup button{
+    position: relative;
+    left:50%;
+    margin-top: 8px;
+    margin-right: 8px;
+    text-align: right;
+    background-color: transparent;
+    border: none;
+    color: #10B0FF;
+    font-size: 18px;
 }
 
 footer{

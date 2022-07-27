@@ -30,6 +30,20 @@ function makeHomeViewFromJson(albums) {
   container.innerHTML += footer();
 
   const albumEL = container.querySelectorAll(".album");
+  albumEL.forEach(album => {
+    const albumCoverEl = album.querySelector(".album-cover")
+    let albumIdEl = album.querySelector(".id-field");
+    const artistEL = album.querySelector(".artist-name-home");
+    albumCoverEl.addEventListener("click", () => {
+      albums.forEach(albumJson => {
+        makeSongListView(albumJson)
+      })
+    })
+
+    
+
+  })
+  
 
   const albumTitleIn = container.querySelector("#album-title");
   const artistNameIn = container.querySelector("#artist-name");
@@ -42,7 +56,7 @@ function makeHomeViewFromJson(albums) {
     const newAlbumJson = {
       "title": albumTitleIn.value,
       "artistName": artistNameIn.value,
-      "linkURL": albumImageURLIn.value,
+      "imgUrl": albumImageURLIn.value,
       "recordLabel": recordLabelIn.value,
     }
 
@@ -61,19 +75,9 @@ function makeHomeViewFromJson(albums) {
       })
   })
 
-  // albumEL.forEach(album => {
-  //   let albumCoverEl = album.querySelector(".album-cover")
-  //   let albumElId = album.querySelector(".album-name-home");
-  //   const artistEL = album.querySelector(".artist-name-home");
-  //   albumCoverEl.addEventListener("click", () => {
-  //     albums.forEach(albumJson => {
-  //       makeSongListView(newAlbumJson)
-  //     })
-  //   })
+  
+  
 
-    
-
-  // })
   const addAlbumButton = container.querySelector("#addAlbumButton")
   addAlbumButton.addEventListener("click", () => {
     
@@ -97,42 +101,40 @@ function makeHomeViewFromJson(albums) {
 
 
 
-// function hideSocials() {
-//   popup.classList.remove("open-popup");
-// }
 
 
 
-// function makeSongListView(songs) {
-//   console.log(songs);
-//   container.innerHTML += header();
-//   container.innerHTML += songList(songs);
-//   container.innerHTML += footer();
 
-//   const albuminfoEl = container.querySelectorAll(".album-info");
+function makeSongListView(album) {
+  console.log(album);
+  container.innerHTML = header();
+  container.innerHTML += songList(album);
+  container.innerHTML += footer();
 
-
-//   albuminfoEl.forEach(album => {
-//     album.addEventListener("click", () => {
-//       let artistNameEL = album.querySelector("#artist-name");
-//       let albumNameEl = album.querySelector("#album-name");
-//       let recordLabelEl = album.querySelector("#record-label");
-//       let songNameEl = album.querySelector(".box-item");
-//       let playArrowEl = album.querySelector(".play-arrow")
-//       songElement.forEach(song => {
-//         playArrowEl.addEventListener("click", () => {
-//           let singleSong = song.querySelector(".play-arrow");
-//           makeSingleSongView(songJson);
-//         })
+  const albuminfoEl = container.querySelectorAll(".album-info");
 
 
-//       })
-//     })
-//   })
-//   const backbutton = container.querySelector("#backbutton");
-//   backbutton.addEventListener("click", () => {
-//     makeHomeView();
-//   })
+  albuminfoEl.forEach(album => {
+    album.addEventListener("click", () => {
+      let artistNameEL = album.querySelector("#artist-name");
+      let albumNameEl = album.querySelector("#album-name");
+      let recordLabelEl = album.querySelector("#record-label");
+      let songNameEl = album.querySelector(".box-item");
+      let playArrowEl = album.querySelector(".play-arrow")
+      // songElement.forEach(album => {
+      //   playArrowEl.addEventListener("click", () => {
+      //     let singleSong = album.querySelector(".play-arrow");
+      //     makeSingleSongView(songJson);
+      //   })
+
+
+      // })
+    })
+  })
+  const backbutton = container.querySelector("#backbutton");
+  backbutton.addEventListener("click", () => {
+    makeHomeView();
+  })
 
 //   const changeAlbumNameButton = container.querySelector(".change-album-name-button");
 //   const changeAlbumNameText = container.querySelector("#popup");
@@ -184,5 +186,5 @@ function makeHomeViewFromJson(albums) {
 // // makeSingleSongView(song) {
 
 // // }
-
-makeHomeView();
+}
+makeHomeView()
