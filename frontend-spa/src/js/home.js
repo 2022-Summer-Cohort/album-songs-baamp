@@ -27,7 +27,7 @@ export default function home(albums) {
                         <span class="album" style="--i:${albumCount};">
                         <figure>
                         <img class="album-cover" src="${album.imgUrl}">
-                        <button class="delete-album-button">&#128465</button>
+                        <button id="deleteAlbumButton" class="delete-album-button">&#128465</button>
                 </figure>
                 <input type="hidden" class="id-field" value="${album.id}">
                 
