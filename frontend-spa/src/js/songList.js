@@ -22,17 +22,17 @@ export default function songList(album) {
                         <div>
                         <button class="change-album-name-button">&#x270E</button>
                         <input type="text" name="popup" id="popup" class="hide">
-                        <br>
-                        <button class="delete-album-button">&#128465</button>
+                       
                         <br>
                         <br>
                         
                         ${album.songs.map(song => {
                             return `<div>
                             <section class="box-items"><a href="#"><img class="play-arrow" src="/src/images/play-arrow.webp" alt="">${song.title}</a>
+                            <input type="hidden" class="song-id-field" value="${song.id}">
                             <div>    
-                            <button class="list-button">&#x270E</button>
-                                <button class="list-button">&#128465</button>
+                            <button class="edit-song-button">&#x270E</button>
+                                <button class="delete-song-button">&#128465</button>
                                 </div>
                             </section>
                         </div>`
