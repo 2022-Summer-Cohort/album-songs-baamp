@@ -46,7 +46,7 @@ export default function home(albums) {
                     </div>
                 </section>
                 <div class="popup" id="popup">
-                <button id="dismissButton" type="button">&#10006</button>
+                    <button id="dismissButton" type="button">&#10006</button>
                     <h2>Add Album</h2>
                     <input id="album-title" class="rating-comment-submit" type="text"
                         placeholder="Title...">

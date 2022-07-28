@@ -33,12 +33,8 @@ function makeHomeViewFromJson(albums) {
   albumEL.forEach(album => {
     const albumCoverEl = album.querySelector(".album-cover")
     let albumIdEl = album.querySelector(".id-field");
-    // const artistEL = album.querySelector(".artist-name-home");
     albumCoverEl.addEventListener("click", () => {
-      // albums.forEach(albumJson => {
-        // makeSongListView(albumJson)
-      // })
-fetch(`http://localhost:8080/api/albums/${albumIdEl.value}`)
+      fetch(`http://localhost:8080/api/albums/${albumIdEl.value}`)
       .then(res => res.json())
       .then(album => {
         makeSongListView(album)
@@ -128,42 +124,93 @@ function makeSongListView(album) {
   container.innerHTML += footer();
 
   const albuminfoEl = container.querySelectorAll(".box-items");
-
-
+// let popup = container.querySelector(".popup")
+// let songIdEl = song.querySelector(".song-id-field");
   albuminfoEl.forEach(song => {
     let songIdEl = song.querySelector(".song-id-field");
-    song.addEventListener("click", () => {
-      // let artistNameEL = album.querySelector("#artist-name");
-      // let albumNameEl = album.querySelector("#album-name");
-      // let recordLabelEl = album.querySelector("#record-label");
-      // let songNameEl = album.querySelector(".box-item");
-      // let playArrowEl = album.querySelector(".play-arrow")
-      // songElement.forEach(album => {
-      //   playArrowEl.addEventListener("click", () => {
-      //     let singleSong = album.querySelector(".play-arrow");
-      //     makeSingleSongView(songJson);
-      //   })
+    
 
-
-      // })
-    })
     const deleteSongButton = song.querySelector(".delete-song-button")
     deleteSongButton.addEventListener("click", () => {
       fetch(`http://localhost:8080/api/songs/${songIdEl.value}`,{
         method: 'DELETE'
       })
         .then(res => res.json())
-        .then(newSongs => {
-          makeSongListViewFromJson(newSongs)
+        .then(newAlbum => {
+          makeSongListView(newAlbum)
         })
     })
-  });
 
+ 
+
+
+    
+    
+  });
+  const submitSongTitleButton = container.querySelector("#submitSongTitleButton");
+  const songDivs = container.querySelectorAll(".songDiv")
+    songDivs.forEach(songDiv => {
+      const songIdEl = songDiv.querySelector(".song-id-field")
+      const editSongButton = songDiv.querySelector(".edit-song-button")
+      editSongButton.addEventListener("click", () => {
+        const selectedSongIn = container.querySelector(".selected-song")
+        songPopup.classList.add("open-popup");
+        selectedSongIn.value = songIdEl.value;
+      })
+    })
+ 
+    
+    
+  submitSongTitleButton.addEventListener("click", () => {
+    
+    const selectedSongIn = container.querySelector(".selected-song")
+    const newSongTitleIn = container.querySelector("#new-song-title");
+   console.log(selectedSongIn)
+    fetch(`http://localhost:8080/api/songs/${selectedSongIn.value}/editSongTitle`, {
+      method: 'PATCH',
+      body: newSongTitleIn.value
+    })
+    .then(res => res.json())
+    .then(newAlbum => {
+      console.log(newAlbum)
+      makeSongListView(newAlbum)
+    })
+  
+  })
+
+
+  
+  
+  let songPopup = container.querySelector("#edit-song-title-popup")
+
+  
+  const dismissButton = container.querySelector("#dismissButton")
+  dismissButton.addEventListener("click", () => {
+    songPopup.classList.remove("open-popup");
+  })
 
   const backbutton = container.querySelector("#backbutton");
   backbutton.addEventListener("click", () => {
     makeHomeView();
   })
+  
+  }
+
+  
+
+
+
+makeHomeView()
+
+
+
+
+
+
+
+
+
+
 
 
 //   const changeAlbumNameButton = container.querySelector(".change-album-name-button");
@@ -216,5 +263,3 @@ function makeSongListView(album) {
 // // makeSingleSongView(song) {
 
 // // }
-}
-makeHomeView()

@@ -147,4 +147,7 @@ background-color: black; */
 .delete-album-button:hover{
   transform: scale(1.2);
 }
+.song-duration{
+  font-size: 18px;
+}
 
