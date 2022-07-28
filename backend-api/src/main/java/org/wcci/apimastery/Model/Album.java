@@ -25,6 +25,7 @@ public class Album {
         this.title = title;
         this.artistName = artistName;
         this.imgUrl = imgUrl;
+
         if (recordLabel == ""){
             this.recordLabel = "'Independent'";
         }
