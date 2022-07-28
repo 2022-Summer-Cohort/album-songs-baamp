@@ -40,6 +40,14 @@ export default function songList(album) {
                                 }
                             </div>
 
+                            <h1 id="title">Add a song!</h1>
+
+                            <input id="song-title-in" type="text" placeholder="Song title...">
+                            <input id="song-url-in" type="text" placeholder="Song url...">
+                            <input id="song-duration-in" type="text" placeholder="Song duration...">
+                       
+                            <input id="submit-song-button" type="submit">
+                            
                             <div>
                                 <br>
                                 <br>
@@ -58,6 +66,8 @@ export default function songList(album) {
 
                             <br>
                             <br>
+
+                            
 
                             <h1 id="title">Add a comment!</h1>
 

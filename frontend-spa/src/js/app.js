@@ -189,7 +189,7 @@ function makeSongListView(album) {
   backbutton.addEventListener("click", () => {
     makeHomeView();
   })
-
+  // Add a comment to the album
   const albumCommentUsername = container.querySelector("#comment-username");
   const albumCommentRating = container.querySelector("#comment-rating");
   const albumCommentBody = container.querySelector("#comment-body");
@@ -207,6 +207,29 @@ function makeSongListView(album) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(newAlbumComment)
+    })
+    .then(res => res.json())
+    .then(album => {
+      makeSongListView(album);
+    })
+  });
+  // Add a song to the album
+  const songTitleIn = container.querySelector("#song-title-in");
+  const songUrlIn = container.querySelector("#song-url-in");
+  const songDurationIn = container.querySelector("#song-duration-in");
+  const submitNewSongButton = container.querySelector("#submit-song-button");
+  submitNewSongButton.addEventListener("click", () => {
+    const newSong = {
+      "title": songTitleIn.value,
+      "linkUrl": songUrlIn.value,
+      "duration": songDurationIn.value,
+    }
+    fetch(`http://localhost:8080/api/albums/${albumIdElement.value}/addSongToAlbum`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newSong)
     })
     .then(res => res.json())
     .then(album => {
