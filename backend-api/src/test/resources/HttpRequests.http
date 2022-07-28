@@ -27,7 +27,7 @@ Content-Type: application/json
 {"id": 1, "title":  "Photograph (Live in ATL)", "linkUrl": "#", "duration": "4:40"}
 
 ### get album songs
-GET http://localhost:8080/api/albums/2/songs
+GET http://localhost:8080/api/albums/1/songs
 Content-Type: application/json
 
 ### delete an album
@@ -43,3 +43,10 @@ POST http://localhost:8080/api/albums/1/newComment
 Content-Type: application/json
 
 {"username": "Blake", "rating": 1.4, "body": "oh jeez, this guy stinks"}
+
+### Delete a song from an album
+DELETE http://localhost:8080/api/songs/13
+Content-Type: application/json
+
+
+
