@@ -26,7 +26,7 @@ export default function songList(album) {
                                 ${album.songs.map(song => {
                                     return `
                                     <div>
-                                        <section class="box-items"><a href="#"><img class="play-arrow" src="/src/images/play-arrow.webp" alt="">${song.title} <p class="song-duration"> ${song.duration}</p></a> 
+                                        <section class="box-items"><a class="song-clicker" href="#"><img class="play-arrow" src="/src/images/play-arrow.webp" alt="">${song.title} <p class="song-duration"> ${song.duration}</p></a> 
                                             
                                             <div class="songDiv">    
                                                 <input type="hidden" class="song-id-field" value="${song.id}">

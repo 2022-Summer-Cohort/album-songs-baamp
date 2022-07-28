@@ -1,13 +1,4 @@
-// const modal = document.querySelector(".modal")
-// const companyBtn = document.querySelector(".sub-btn");
-// companyBtn.addEventListener("click", () => {
-// modal.classList.add("active")
-// })
 
-// const closeBtn = document.querySelector(".close-modal");
-// closeBtn.addEventListener("click", () => {
-//   modal.classList.remove("active")
-// })
 import header from "./header.js";
 import home from "./home.js";
 import songList from "./songList.js";
@@ -103,20 +94,6 @@ dismissButton.addEventListener("click", () => {
 }
 
 
-// const changeAlbumNameButton = container.querySelector(".change-album-name-button");
-// const changeAlbumNameText = container.querySelector("#popup");
-// console.log(changeAlbumNameButton)
-// changeAlbumNameButton.addEventListener("click", () => {
-//   changeAlbumNameText.classList.toggle("hide");
-//   changeAlbumNameText.classList.toggle("show");
-// })
-
-
-
-
-
-
-
 function makeSongListView(album) {
   console.log(album);
   container.innerHTML = header();
@@ -140,12 +117,10 @@ function makeSongListView(album) {
           makeSongListView(newAlbum)
         })
     })
-
- 
-
-
     
-    
+
+
+
   });
   const submitSongTitleButton = container.querySelector("#submitSongTitleButton");
   const songDivs = container.querySelectorAll(".songDiv")
@@ -157,10 +132,18 @@ function makeSongListView(album) {
         songPopup.classList.add("open-popup");
         selectedSongIn.value = songIdEl.value;
       })
+
+      
+      const songClickerEl = container.querySelectorAll(".song-clicker")
+      songClickerEl.addEventListener("click", () => {
+      fetch(`http://localhost:8080/api/songs/${songIdEl.value}`)
+      .then(res => res.json())
+      .then(song => {
+        makeSingleSongView(song)
+      })
     })
+    });;
  
-    
-    
   submitSongTitleButton.addEventListener("click", () => {
     
     const selectedSongIn = container.querySelector(".selected-song")
@@ -178,18 +161,12 @@ function makeSongListView(album) {
   
   })
 
-
-  
-  
   let songPopup = container.querySelector("#edit-song-title-popup")
-
-  
   const dismissButton = container.querySelector("#dismissButton")
+
   dismissButton.addEventListener("click", () => {
     songPopup.classList.remove("open-popup");
   })
-
-
 
 const submitAlbumTitleButton = container.querySelector("#submit-album-title-button")
 let albumIdEl = container.querySelector(".album-id-field")
@@ -222,70 +199,13 @@ let albumTitlePopup = container.querySelector("#edit-album-popup")
   
   }
 
+  function makeSingleSongView(song) {
+    console.log(song);
+  container.innerHTML = header();
+  container.innerHTML += singleSong(song);
+  container.innerHTML += footer();
+
   
-
-
-
+  }
 makeHomeView()
 
-
-
-
-
-
-
-
-
-
-
-
-//   const changeAlbumNameButton = container.querySelector(".change-album-name-button");
-//   const changeAlbumNameText = container.querySelector("#popup");
-//   console.log(changeAlbumNameText)
-//   changeAlbumNameButton.addEventListener("click", () => {
-//     changeAlbumNameText.classList.toggle("hide");
-//     changeAlbumNameText.classList.toggle("show");
-//   })
-
-//   const deleteAlbumButton = container.querySelector(".delete-album-button");
-//   deleteAlbumButton.addEventListener("click", () => {
-//     fetch(`HTTP MAPPING FOR DELETE${albumElId.value}`, {
-//       method: 'DELETE'
-//     })
-//       .then(res => res.json())
-//       .then(newAlbums => {
-//         makeHomeViewFromJson(newAlbums);
-//         //TODO review this code
-//       })
-//   })
-
-//   const titleIn = container.querySelector(".titleNameInput");
-//   const linkURLIn = container.querySelector(".linkURLInput");
-//   const durationIn = container.querySelector(".durationInput");
-//   const albumIn = container.querySelector(".albumInput");
-//   const addSongToAlbumButton = songs.querySelector(".add-song-to-album-button");
-//   addSongToAlbumButton.addEventListener("click", () => {
-//     const newSongJson = {
-//       "title": titleIn.value,
-//       "linkURL": linkURLIn.value,
-//       "duration": durationIn.value,
-//       "album": albumIn.value,
-//     }
-//     // fetch(`HTTP MAPPING FOR ADD/${song.id}/addSong`,
-//     // method: "POST"
-//     // )
-//   })
-
-//   changeSongNameButton = songs.querySelector(".change-song-name-button");
-//   const deleteSongButton = songs.querySelector(".delete-song-button");
-//   deleteSongButton.addEventListener
-
-// }
-
-
-
-
-
-// // makeSingleSongView(song) {
-
-// // }

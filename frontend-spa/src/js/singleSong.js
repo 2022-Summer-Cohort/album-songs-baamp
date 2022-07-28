@@ -1,4 +1,4 @@
-export default function singleSong(){
+export default function singleSong(song){
     return `<body id="exposedbrickbackground">
     <div class="container">
         <input type="file" id="thefile" accept="audio/*" />
@@ -14,12 +14,12 @@ export default function singleSong(){
                 <section class="projects">
                     <div class="scrolling-box">
                         <div id="album-info">
-                            <h3 id="artist-name">Artist: Brand New</h3>
-                            <h4 id="album-name">Album: Deja Entendu</h4>
-                            <h4 id="record-label">Record Label: TripleCrown</h4>
+                        <h3 id="artist-name">Artist: ${album.artistName}</h3>
+                        <h4 id="album-name">Album: ${album.title}</h4>
+                        <h4 id="record-label">Record Label: ${album.recordLabel}</h4>
                         </div>
                         <section class="box-items">Playing:</section>
-                        <section class="box-items">Play Crack the Sky</section>
+                        <section class="box-items">${song.title}</section>
                         <br>
                     <br>
                     <input id="comment-box" class="rating-comment-submit" type="text" placeholder="write a comment here...">
@@ -39,7 +39,7 @@ export default function singleSong(){
         </div>
 
     </div>
-    <script src="/src/js/app.js"></script>
+    <script src="/src/js/app.js" type="module"></script>
     <script src="/src/js/animation.js"></script>
     
 </body>`
