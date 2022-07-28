@@ -70,6 +70,7 @@ public class Album {
         return songs;
     }
 
+
     public Collection<AlbumComment> getAlbumComments() {
         return albumComments;
     }
@@ -101,6 +102,10 @@ public class Album {
 
     public void addSong(Song song) {
         songs.add(song);
+    }
+
+    public void addComment(AlbumComment comment) {
+        albumComments.add(comment);
     }
 
     @Override

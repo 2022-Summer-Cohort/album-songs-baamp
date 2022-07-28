@@ -83,8 +83,8 @@ export default function songList(album) {
                         <input id="new-album-title" type="text" placeholder="New Album Title">
                         <br>
                         <br>
+                        <input type="hidden" class="album-id-field" value="${album.id}">
                         <input id="submit-album-title-button" type="submit">
-                        <input class="selected-album-title" type="hidden" value="${album.id}" >
                     </div>
                 </div>
             </div>

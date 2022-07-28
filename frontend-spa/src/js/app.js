@@ -194,14 +194,14 @@ function makeSongListView(album) {
   const albumCommentRating = container.querySelector("#comment-rating");
   const albumCommentBody = container.querySelector("#comment-body");
   const submitNewCommentButton = container.querySelector("#submit-comment-button");
-
+  const albumIdElement = container.querySelector(".album-id-field");
   submitNewCommentButton.addEventListener("click", () => {
     const newAlbumComment = {
       "username": albumCommentUsername.value,
       "rating": albumCommentRating.value,
       "body": albumCommentBody.value,
     }
-    fetch(`http://localhost:8080/api/albums/${albumIdEl.value}/newComment`, {
+    fetch(`http://localhost:8080/api/albums/${albumIdElement.value}/newComment`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
