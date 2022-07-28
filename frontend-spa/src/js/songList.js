@@ -39,31 +39,33 @@ export default function songList(album) {
                                 }).join("")
                                 }
                             </div>
-                            <br>
-                            <br>
-                            <input id="comment-box" class="rating-comment-submit" type="text"
-                                placeholder="write a comment here...">
-                            <br>
-                            <br>
-                            <input id="rating-box" class="rating-comment-submit" type="number" min="0" max="5"
-                                placeholder="Choose Rating">
-                            <br>
-                            <br>
-                            <input id="submit-button" type="submit">
 
-                            <!-- <div id="rating">
-                                    <input id="rating-stars" class="rating" min="0" max="5"
-                                        oninput="this.style.setProperty('--value', this.value)" step="0.5" type="range"
-                                        value="1" name="rating">
-                                    <p class="stars">
-                                        <span class="star-checked">&#9733;</span>
-                                        <span class="star-checked">&#9733;</span>
-                                        <span class="star-checked">&#9733;</span>
-                                        <span class="star">&#9733;</span>
-                                        <span class="star">&#9733;</span>
-                                    </p>
-                                    </input>
-                                </div> -->
+                            <div>
+                                <br>
+                                <br>
+                                ${album.albumComments.map(comment => {
+                                    return `
+                                    <div class="album-comments">
+                                        <section class="comment-box-items">
+                                            <h1>${comment.username}</h1>
+                                            <h3>${comment.rating}</h3>
+                                            <p>${comment.body}</p>
+                                        </section>
+                                    </div>
+                                    `
+                                }).join("")}
+                            </div>
+
+                            <br>
+                            <br>
+
+                            <h1 id="title">Add a comment!</h1>
+
+                            <input id="comment-username" type="text" placeholder="Username...">
+                            <input id="comment-rating" type="number" min="0" step="0.1" max="5" placeholder="Rating...">
+                            <input id="comment-body" type="text" placeholder="Body...">
+                       
+                            <input id="submit-comment-button" type="submit">
                         </div>
                     </section>
                     <div class="popup" id="edit-song-title-popup">

@@ -35,87 +35,70 @@ function makeHomeViewFromJson(albums) {
     let albumIdEl = album.querySelector(".id-field");
     albumCoverEl.addEventListener("click", () => {
       fetch(`http://localhost:8080/api/albums/${albumIdEl.value}`)
-      .then(res => res.json())
-      .then(album => {
-        makeSongListView(album)
-      })
+        .then(res => res.json())
+        .then(album => {
+          makeSongListView(album)
+        })
     })
 
     const deleteAlbumButton = album.querySelector(".delete-album-button")
     deleteAlbumButton.addEventListener("click", () => {
-      fetch(`http://localhost:8080/api/albums/${albumIdEl.value}`,{
+      fetch(`http://localhost:8080/api/albums/${albumIdEl.value}`, {
         method: 'DELETE'
 
-      } )
-      .then(res => res.json())
-      .then(newAlbums => {
-        makeHomeViewFromJson(newAlbums);
       })
-      
+        .then(res => res.json())
+        .then(newAlbums => {
+          makeHomeViewFromJson(newAlbums);
+        })
+
     })
 
 
- 
 
-}
 
-);
-const albumTitleIn = container.querySelector("#album-title");
-const artistNameIn = container.querySelector("#artist-name");
-const albumImageURLIn = container.querySelector("#album-image-url");
-const recordLabelIn = container.querySelector("#record-label");
-
-const submitAlbumButton = container.querySelector("#submitAlbumButton");
-submitAlbumButton.addEventListener("click", () => {
-  
-  const newAlbumJson = {
-    "title": albumTitleIn.value,
-    "artistName": artistNameIn.value,
-    "imgUrl": albumImageURLIn.value,
-    "recordLabel": recordLabelIn.value,
   }
 
-  fetch(`http://localhost:8080/api/albums/addAlbum`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(newAlbumJson)
-  })
-    .then(res => res.json())
-    .then(album => {
-      // 
-      // makeSongListView(newAlbumJson)
-      makeHomeView(albums)
+  );
+  const albumTitleIn = container.querySelector("#album-title");
+  const artistNameIn = container.querySelector("#artist-name");
+  const albumImageURLIn = container.querySelector("#album-image-url");
+  const recordLabelIn = container.querySelector("#record-label");
+
+  const submitAlbumButton = container.querySelector("#submitAlbumButton");
+  submitAlbumButton.addEventListener("click", () => {
+
+    const newAlbumJson = {
+      "title": albumTitleIn.value,
+      "artistName": artistNameIn.value,
+      "imgUrl": albumImageURLIn.value,
+      "recordLabel": recordLabelIn.value,
+    }
+
+    fetch(`http://localhost:8080/api/albums/addAlbum`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newAlbumJson)
     })
-})
+      .then(res => res.json())
+      .then(albums => {
+        makeHomeView(albums)
+      })
+  })
 
-const addAlbumButton = container.querySelector("#addAlbumButton")
-addAlbumButton.addEventListener("click", () => {
-  
-  popup.classList.add("open-popup");
-  
-})
-const dismissButton = container.querySelector("#dismissButton")
-dismissButton.addEventListener("click", () => {
-  popup.classList.remove("open-popup");
-})
+  const addAlbumButton = container.querySelector("#addAlbumButton")
+  addAlbumButton.addEventListener("click", () => {
+
+    popup.classList.add("open-popup");
+
+  })
+  const dismissButton = container.querySelector("#dismissButton")
+  dismissButton.addEventListener("click", () => {
+    popup.classList.remove("open-popup");
+  })
 }
-
-
-// const changeAlbumNameButton = container.querySelector(".change-album-name-button");
-// const changeAlbumNameText = container.querySelector("#popup");
-// console.log(changeAlbumNameButton)
-// changeAlbumNameButton.addEventListener("click", () => {
-//   changeAlbumNameText.classList.toggle("hide");
-//   changeAlbumNameText.classList.toggle("show");
-// })
-
-
-
-
-
-
 
 function makeSongListView(album) {
   console.log(album);
@@ -124,15 +107,13 @@ function makeSongListView(album) {
   container.innerHTML += footer();
 
   const albuminfoEl = container.querySelectorAll(".box-items");
-// let popup = container.querySelector(".popup")
-// let songIdEl = song.querySelector(".song-id-field");
   albuminfoEl.forEach(song => {
     let songIdEl = song.querySelector(".song-id-field");
-    
+
 
     const deleteSongButton = song.querySelector(".delete-song-button")
     deleteSongButton.addEventListener("click", () => {
-      fetch(`http://localhost:8080/api/songs/${songIdEl.value}`,{
+      fetch(`http://localhost:8080/api/songs/${songIdEl.value}`, {
         method: 'DELETE'
       })
         .then(res => res.json())
@@ -141,71 +122,60 @@ function makeSongListView(album) {
         })
     })
 
- 
-
-
-    
-    
   });
   const submitSongTitleButton = container.querySelector("#submitSongTitleButton");
   const songDivs = container.querySelectorAll(".songDiv")
-    songDivs.forEach(songDiv => {
-      const songIdEl = songDiv.querySelector(".song-id-field")
-      const editSongButton = songDiv.querySelector(".edit-song-button")
-      editSongButton.addEventListener("click", () => {
-        const selectedSongIn = container.querySelector(".selected-song")
-        songPopup.classList.add("open-popup");
-        selectedSongIn.value = songIdEl.value;
-      })
+  songDivs.forEach(songDiv => {
+    const songIdEl = songDiv.querySelector(".song-id-field")
+    const editSongButton = songDiv.querySelector(".edit-song-button")
+    editSongButton.addEventListener("click", () => {
+      const selectedSongIn = container.querySelector(".selected-song")
+      songPopup.classList.add("open-popup");
+      selectedSongIn.value = songIdEl.value;
     })
- 
-    
-    
+  })
+
+
+
   submitSongTitleButton.addEventListener("click", () => {
-    
+
     const selectedSongIn = container.querySelector(".selected-song")
     const newSongTitleIn = container.querySelector("#new-song-title");
-   console.log(selectedSongIn)
+    console.log(selectedSongIn)
     fetch(`http://localhost:8080/api/songs/${selectedSongIn.value}/editSongTitle`, {
       method: 'PATCH',
       body: newSongTitleIn.value
     })
-    .then(res => res.json())
-    .then(newAlbum => {
-      console.log(newAlbum)
-      makeSongListView(newAlbum)
-    })
-  
+      .then(res => res.json())
+      .then(newAlbum => {
+        console.log(newAlbum)
+        makeSongListView(newAlbum)
+      })
+
   })
 
-
-  
-  
   let songPopup = container.querySelector("#edit-song-title-popup")
 
-  
   const dismissButton = container.querySelector("#dismissButton")
   dismissButton.addEventListener("click", () => {
     songPopup.classList.remove("open-popup");
   })
 
-
-
-const submitAlbumTitleButton = container.querySelector("#submit-album-title-button")
-let albumIdEl = container.querySelector(".album-id-field")
-submitAlbumTitleButton.addEventListener("click", () => {
-  const updateAlbumTitle = container.querySelector("#new-album-title")
-  fetch(`http://localhost:8080/api/albums/${albumIdEl.value}/newAlbumTitle`, {
-    method: 'PATCH',
-    body: updateAlbumTitle.value
+  const submitAlbumTitleButton = container.querySelector("#submit-album-title-button")
+  let albumIdEl = container.querySelector(".album-id-field")
+  submitAlbumTitleButton.addEventListener("click", () => {
+    const updateAlbumTitle = container.querySelector("#new-album-title")
+    fetch(`http://localhost:8080/api/albums/${albumIdEl.value}/newAlbumTitle`, {
+      method: 'PATCH',
+      body: updateAlbumTitle.value
+    })
+      .then(res => res.json())
+      .then(newAlbum => {
+        makeSongListView(newAlbum);
+      })
   })
-  .then(res => res.json())
-  .then(newAlbum => {
-    makeSongListView(newAlbum);
-  })
-})
-const editAlbumTitleButton = container.querySelector(".change-album-name-button")
-let albumTitlePopup = container.querySelector("#edit-album-popup")
+  const editAlbumTitleButton = container.querySelector(".change-album-name-button")
+  let albumTitlePopup = container.querySelector("#edit-album-popup")
   editAlbumTitleButton.addEventListener("click", () => {
     albumTitlePopup.classList.add("open-popup")
   })
@@ -219,10 +189,33 @@ let albumTitlePopup = container.querySelector("#edit-album-popup")
   backbutton.addEventListener("click", () => {
     makeHomeView();
   })
-  
-  }
 
-  
+  const albumCommentUsername = container.querySelector("#comment-username");
+  const albumCommentRating = container.querySelector("#comment-rating");
+  const albumCommentBody = container.querySelector("#comment-body");
+  const submitNewCommentButton = container.querySelector("#submit-comment-button");
+
+  submitNewCommentButton.addEventListener("click", () => {
+    const newAlbumComment = {
+      "username": albumCommentUsername.value,
+      "rating": albumCommentRating.value,
+      "body": albumCommentBody.value,
+    }
+    fetch(`http://localhost:8080/api/albums/${albumIdEl.value}/newComment`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newAlbumComment)
+    })
+    .then(res => res.json())
+    .then(album => {
+      makeSongListView(album);
+    })
+  });
+}
+
+
 
 
 

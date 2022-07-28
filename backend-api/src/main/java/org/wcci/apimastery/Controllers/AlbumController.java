@@ -90,9 +90,8 @@ public class AlbumController {
         albumToEdit.updateAverageRating();
 
         albumCommentRepo.save(newAlbumComment);
-        albumRepo.save(albumToEdit);
 
-        return albumToEdit;
+        return newAlbumComment.getAlbum();
     }
 
     @PatchMapping("/{id}/editAlbumCommentRating")
