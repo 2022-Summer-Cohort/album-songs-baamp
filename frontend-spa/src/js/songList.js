@@ -17,6 +17,7 @@ export default function songList(album) {
                                 <h3 id="artist-name">Artist: ${album.artistName}</h3>
                                 <h4 id="album-name">Album: ${album.title}</h4>
                                 <h4 id="record-label">Record Label: ${album.recordLabel}</h4>
+                                <input type="hidden" class="album-id-field" value="${album.id}">
                                 <button class="change-album-name-button">&#x270E</button>
                             </div>
                             <div>
@@ -69,6 +70,15 @@ export default function songList(album) {
                         <button id="dismissButton" type="button">&#10006</button>
                         <h2>Edit Song Title</h2>
                         <input id="new-song-title" type="text" placeholder="New Song Title">
+                        <br>
+                        <br>
+                        <input id="submitSongTitleButton" type="submit">
+                        <input class="selected-song" type="hidden" value="-1" >
+                    </div>
+                    <div class="popup" id="edit-album-popup">
+                        <button id="dismissButton" type="button">&#10006</button>
+                        <h2>Edit Song Title</h2>
+                        <input id="new-song-title" type="text" placeholder="New Album Title">
                         <br>
                         <br>
                         <input id="submitSongTitleButton" type="submit">
