@@ -38,13 +38,7 @@ public class SongController {
 //        return albumRepo.findById(id).get().getSongs();
 //    }
 
-    @PatchMapping("/{id}/editTitle")
-    public Song editSongTitle(@RequestBody String newTitle, @PathVariable Long id) {
-        Song songToChange = songRepo.findById(id).get();
-        songToChange.changeTitle(newTitle);
-        songRepo.save(songToChange);
-        return songToChange;
-    }
+
 
     @PatchMapping("/{id}/editLink")
     public Song editSongLink(@RequestBody String newUrl, @PathVariable Long id) {
@@ -85,6 +79,15 @@ public class SongController {
     public Album deleteSongFromAlbum(@PathVariable Long id) {
         Album album = songRepo.findById(id).get().getAlbum();
         songRepo.deleteById(id);
+        return album;
+    }
+
+    @PatchMapping("/{id}/editSongTitle")
+    public Album editSongTitle(@RequestBody String newTitle, @PathVariable Long id) {
+        Album album = songRepo.findById(id).get().getAlbum();
+        Song song = songRepo.findById(id).get();
+        song.changeTitle(newTitle);
+        songRepo.save(song);
         return album;
     }
 

@@ -48,5 +48,7 @@ Content-Type: application/json
 DELETE http://localhost:8080/api/songs/13
 Content-Type: application/json
 
+### Change a song title
+PATCH http://localhost:8080/api/songs/13/editSongTitle
 
-
+Test
