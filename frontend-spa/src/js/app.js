@@ -189,6 +189,32 @@ function makeSongListView(album) {
     songPopup.classList.remove("open-popup");
   })
 
+
+
+const submitAlbumTitleButton = container.querySelector("#submit-album-title-button")
+let albumIdEl = container.querySelector(".album-id-field")
+submitAlbumTitleButton.addEventListener("click", () => {
+  const updateAlbumTitle = container.querySelector("#new-album-title")
+  fetch(`http://localhost:8080/api/albums/${albumIdEl.value}/newAlbumTitle`, {
+    method: 'PATCH',
+    body: updateAlbumTitle.value
+  })
+  .then(res => res.json())
+  .then(newAlbum => {
+    makeSongListView(newAlbum);
+  })
+})
+const editAlbumTitleButton = container.querySelector(".change-album-name-button")
+let albumTitlePopup = container.querySelector("#edit-album-popup")
+  editAlbumTitleButton.addEventListener("click", () => {
+    albumTitlePopup.classList.add("open-popup")
+  })
+
+  const dismissAlbumButton = container.querySelector("#dismissAlbumButton")
+  dismissAlbumButton.addEventListener("click", () => {
+    albumTitlePopup.classList.remove("open-popup");
+  })
+
   const backbutton = container.querySelector("#backbutton");
   backbutton.addEventListener("click", () => {
     makeHomeView();

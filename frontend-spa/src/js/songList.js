@@ -76,13 +76,13 @@ export default function songList(album) {
                         <input class="selected-song" type="hidden" value="-1" >
                     </div>
                     <div class="popup" id="edit-album-popup">
-                        <button id="dismissButton" type="button">&#10006</button>
-                        <h2>Edit Song Title</h2>
-                        <input id="new-song-title" type="text" placeholder="New Album Title">
+                        <button id="dismissAlbumButton" type="button">&#10006</button>
+                        <h2>Edit Album Title</h2>
+                        <input id="new-album-title" type="text" placeholder="New Album Title">
                         <br>
                         <br>
-                        <input id="submitSongTitleButton" type="submit">
-                        <input class="selected-song" type="hidden" value="-1" >
+                        <input id="submit-album-title-button" type="submit">
+                        <input class="selected-album-title" type="hidden" value="${album.id}" >
                     </div>
                 </div>
             </div>
