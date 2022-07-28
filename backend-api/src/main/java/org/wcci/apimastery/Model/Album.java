@@ -25,11 +25,14 @@ public class Album {
         this.title = title;
         this.artistName = artistName;
         this.imgUrl = imgUrl;
-        if (Objects.equals(recordLabel, "")) {
+
+        if (recordLabel == ""){
             this.recordLabel = "'Independent'";
-        } else {
+        }
+        else {
             this.recordLabel = recordLabel;
         }
+
         this.albumComments = Arrays.asList(comments);
 
         this.avgRating = updateAverageRating();

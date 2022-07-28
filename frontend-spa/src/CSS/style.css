@@ -115,4 +115,39 @@ color: white;
   visibility: visible;
 }
 
+button{
+
+  background-color: transparent;
+  color: #10B0FF;
+  font-size: 30px;
+  right: 0;
+  cursor: pointer;
+
+}
+button:hover{
+  transform: scale(1.2);
+}
+
+.delete-album-button{
+  z-index: 10000;
+  position: fixed;
+
+/* border: solid 3px;
+border-radius: 50%;
+background-color: black; */
+  font-weight: bold;
+  margin-top: 90%;
+  margin-right: -15%;
+  border: none;
+  width: 2em;
+  height: 2em;
+  font-size: 2em;
+  cursor: pointer;
+}
+.delete-album-button:hover{
+  transform: scale(1.2);
+}
+.song-duration{
+  font-size: 18px;
+}
 
