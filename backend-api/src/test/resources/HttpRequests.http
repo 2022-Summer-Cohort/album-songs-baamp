@@ -52,3 +52,7 @@ Content-Type: application/json
 PATCH http://localhost:8080/api/songs/13/editSongTitle
 
 Test
+
+### Go to album that song belongs to
+GET http://localhost:8080/api/songs/50/backToAlbum
+Content-Type: application/json

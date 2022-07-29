@@ -91,4 +91,9 @@ public class SongController {
         return album;
     }
 
+    @GetMapping("/{id}/backToAlbum")
+    public Album backToAlbum(@PathVariable Long id) {
+        return songRepo.findById(id).get().getAlbum();
+    }
+
 }

@@ -254,10 +254,16 @@ function makeSongView(song) {
   container.innerHTML += singleSong(song);
   container.innerHTML += footer();
 
+  const songIdEl = container.querySelector(".song-id-field");
+  console.log(songIdEl);
   // Back button **CHANGE TO SHOW ALBUM?**
   const backbutton = container.querySelector("#backbutton");
   backbutton.addEventListener("click", () => {
-    makeHomeView();
+    fetch(`http://localhost:8080/api/songs/${songIdEl.value}/backToAlbum`)
+    .then(res => res.json())
+    .then(album => {
+      makeSongListView(album);
+    })
   });
 }
 

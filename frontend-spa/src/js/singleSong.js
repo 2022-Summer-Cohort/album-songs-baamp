@@ -16,7 +16,7 @@ export default function singleSong(song){
                             <h3 id="artist-name">Title: ${song.title}</h3>
                             <h4 id="album-name">URL: <a href="${song.linkUrl}" target="_blank">${song.linkUrl}</a></h4>
                             <h4 id="record-label">Record Label: ${song.duration}</h4>
-                            <input type="hidden" class="album-id-field" value="${song.id}">
+                            <input type="hidden" class="song-id-field" value="${song.id}">
                             <button class="change-album-name-button">&#x270E</button>
                         </div>
 
