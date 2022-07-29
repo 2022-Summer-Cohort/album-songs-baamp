@@ -31,8 +31,8 @@ public class Populator implements CommandLineRunner {
         AlbumComment dEComment2 = new AlbumComment("Ali Shutler", 5.0, "In 2003 Brand New were just another pop-punk band from Long Island. Then came 'Deja Entendu'. Smart, sexy and bleak, it didn't just push the band into becoming the spotlight-shunning superstars that we both hate and adore today; it redefined a genre.");
         AlbumComment dEComment3 = new AlbumComment("Ali Shutler", 2.3, "In 2003 Brand New were just another pop-punk band from Long Island. Then came 'Deja Entendu'. Smart, sexy and bleak, it didn't just push the band into becoming the spotlight-shunning superstars that we both hate and adore today; it redefined a genre.");
         AlbumComment dEComment4 = new AlbumComment("Ali Shutler", 1.0, "In 2003 Brand New were just another pop-punk band from Long Island. Then came 'Deja Entendu'. Smart, sexy and bleak, it didn't just push the band into becoming the spotlight-shunning superstars that we both hate and adore today; it redefined a genre.");
-        Song song1 = new Song("Tautou", "#", "1:42");
-        Song song4 = new Song("Okay I Believe You, but My Tommy Gun Don't", "#", "5:35");
+        Song song1 = new Song("Tautou", "https://www.youtube.com/embed/78_Gg9qVaK0", "1:42");
+        Song song4 = new Song("Okay I Believe You, but My Tommy Gun Don't", "https://www.youtube.com/embed/-oorx2EQ0Ag", "5:35");
         Song song7 = new Song("Jaws Theme Swimming", "#", "4:34");
         Song song2 = new Song("Sic Transit Gloria...Glory Fades", "#", "3:06");
         Song song5 = new Song("The Quiet Things That No One Ever Knows", "#", "4:02");
