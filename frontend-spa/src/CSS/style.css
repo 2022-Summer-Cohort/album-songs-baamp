@@ -163,3 +163,11 @@ background-color: black; */
 .comment-box-items h3 {
   color: #10B0FF;
 }
+
+#rating-stars {
+  color: #10B0FF;
+}
+
+#gold {
+  color: gold;
+}

@@ -14,8 +14,8 @@ export default function header(){
                 </a>
             </li>
             <div class="space-items">
-                <li class="sub-item"><a href="#">Item</a>
-                    <a href="#">
+                <li class="sub-item"><a href="#">Alex Nathans</a>
+                    <a href="https://anathans1.github.io/" target="_blank">
                         <img class="dropdown-images" src="#" alt="#">
                     </a>
                 </li>

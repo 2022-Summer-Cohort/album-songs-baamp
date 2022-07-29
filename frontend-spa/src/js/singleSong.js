@@ -13,20 +13,19 @@ export default function singleSong(song){
                 <section class="projects">
                     <div class="scrolling-box">
                         <div id="album-info">
-                            <h3 id="artist-name">Title: ${song.title}</h3>
-                            <h4 id="album-name">URL: <a href="${song.linkUrl}" target="_blank">${song.linkUrl}</a></h4>
-                            <h4 id="record-label">Record Label: ${song.duration}</h4>
+                            <a href="${song.linkUrl}" target="_blank"><h3 id="artist-name">Title: ${song.title}</h3></a>
+                            <h4 id="record-label">Duration: ${song.duration}</h4>
+                            <a href="#song-comments"><h4 id="avgRating">Rating: ${song.avgRating}<span id="gold">&#x272D;</span></h4></a>
                             <input type="hidden" class="song-id-field" value="${song.id}">
-                            <button class="change-album-name-button">&#x270E</button>
                         </div>
                         
-                        <div><br><br>
+                        <div id="song-comments"><br><br>
                             ${song.comments.map(comment => {
                                 return `
                                 <div class="album-comments">
                                     <section class="comment-box-items">
                                         <h1>${comment.username}</h1>
-                                        <h3>${comment.rating}</h3>
+                                        <h3>${comment.rating} <span id="gold">&#x272D;</span></h3>
                                         <p>${comment.body}</p>
                                     </section>
                                 </div>

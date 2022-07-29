@@ -63,9 +63,16 @@
     text-decoration: none;
     color: white;
     width: 80%;
-    
-
   }
   .box-items a:hover{
     color: lightgray;
   }
+
+#edit-album-title-button {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+/*#edit-album-title-button h4 {*/
+/*  width: 80%;*/
+/*}*/

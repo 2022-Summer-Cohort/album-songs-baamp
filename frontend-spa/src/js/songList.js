@@ -15,10 +15,16 @@ export default function songList(album) {
                     
                         <div id="album-info">
                             <h3 id="artist-name">Artist: ${album.artistName}</h3>
-                            <h4 id="album-name">Album: ${album.title}</h4>
+                            <div id="edit-album-title-button">
+                                <h4 id="album-name">Album: ${album.title}</h4>
+                                <button class="change-album-name-button">&#x270E</button>
+                                <input type="hidden" class="album-id-field" value="${album.id}">
+                            </div>
                             <h4 id="record-label">Record Label: ${album.recordLabel}</h4>
-                            <input type="hidden" class="album-id-field" value="${album.id}">
-                            <button class="change-album-name-button">&#x270E</button>
+                            <a href="#album-comments-section"><h4 id="avg-rating">Rating: ${album.avgRating} <span id="gold">&#x272D;</span></h4></a>
+                            
+                                
+                            
                         </div>
                         
                         <div><br><br>
@@ -29,7 +35,8 @@ export default function songList(album) {
                                             <a href="#" class="show-song">
                                                 <img class="play-arrow" src="/src/images/play-arrow.webp" alt="">${song.title}
                                                 <p class="song-duration"> ${song.duration}</p>
-                                            </a> 
+                                                <p class="song-duration"> ${song.avgRating} <span id="gold">&#x272D;</span></p>
+                                            </a>
                                             
                                             <div class="songDiv">    
                                                 <input type="hidden" class="song-id-field" value="${song.id}">
@@ -50,13 +57,13 @@ export default function songList(album) {
                    
                         <input id="submit-song-button" type="submit">
                         
-                        <div><br><br><br>
+                        <div id="album-comments-section"><br><br><br>
                             ${album.albumComments.map(comment => {
                                 return `
                                 <div class="album-comments">
                                     <section class="comment-box-items">
                                         <h1>${comment.username}</h1>
-                                        <h3>${comment.rating}</h3>
+                                        <h3>${comment.rating} <span id="gold">&#x272D;</span></h3>
                                         <p>${comment.body}</p>
                                     </section>
                                 </div>
