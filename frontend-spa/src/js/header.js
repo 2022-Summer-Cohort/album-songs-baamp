@@ -4,23 +4,7 @@ export default function header(){
     <img class="logo" src="/src/images/SODASHOPLOGO.png" alt=""></a>
     <div class="nav">
         <ul class="menu">
-            <!-- <li class="menu-item">
-                <a data-modal-target="modal" class="sub-btn" href="#">Miscelanious link <i></i> </a>
-                <ul class="info-modal-link">
-                    <li class="modal">
-                        <div class="modal-header">
-                            popup window
-                            <button class="close-modal">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa commodi minima facere in
-                            voluptates dolorum doloremque sequi impedit. Atque quo delectus non mollitia sed minus
-                            perferendis tempora suscipit maxime voluptatem?
-                        </div>
-                    </li>
-                    <div class="active" id="overlay"></div>
-                </ul>
-            </li> -->
+            
             <div id="overlay"></div>
 
             <li class="menu-item">
@@ -59,7 +43,6 @@ export default function header(){
             </div>
         </ul>
         </li>
-        <!-- <li class="menu-item"><a href="#">Miscelanious Link</a></li> -->
         </ul>
     </div>
 </header>`
