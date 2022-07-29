@@ -17,10 +17,7 @@ export default function singleSong(song){
                             <h4 id="record-label">Duration: ${song.duration}</h4>
                             <a href="#song-comments"><h4 id="avgRating">Rating: ${song.avgRating}<span id="gold">&#x272D;</span></h4></a>
                             <input type="hidden" class="song-id-field" value="${song.id}">
-                            <iframe width="560" height="315" src="${song.linkUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        
-                        <div id="song-comments"><br><br>
+                            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2XWt36nIpTux6S7XnJqYhy?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>                        <div id="song-comments"><br><br>
                             ${song.comments.map(comment => {
                                 return `
                                 <div class="album-comments">
