@@ -253,10 +253,33 @@ function makeSongView(song) {
   container.innerHTML = header();
   container.innerHTML += singleSong(song);
   container.innerHTML += footer();
-
   const songIdEl = container.querySelector(".song-id-field");
-  console.log(songIdEl);
-  // Back button **CHANGE TO SHOW ALBUM?**
+
+  // Add a song comment
+  const songCommentUsername = container.querySelector("#comment-username");
+  const songCommentRating = container.querySelector("#comment-rating");
+  const songCommentBody = container.querySelector("#comment-body");
+  const submitNewCommentButton = container.querySelector("#submit-comment-button");
+  submitNewCommentButton.addEventListener("click", () => {
+    const newSongComment = {
+      "username": songCommentUsername.value,
+      "rating": songCommentRating.value,
+      "body": songCommentBody.value,
+    }
+    fetch(`http://localhost:8080/api/songs/${songIdEl.value}/newComment`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newSongComment)
+    })
+    .then(res => res.json())
+    .then(song => {
+      makeSongView(song);
+    })
+  })
+
+  // Back button to return to album that song belongs to
   const backbutton = container.querySelector("#backbutton");
   backbutton.addEventListener("click", () => {
     fetch(`http://localhost:8080/api/songs/${songIdEl.value}/backToAlbum`)

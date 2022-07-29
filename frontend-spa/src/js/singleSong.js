@@ -19,6 +19,20 @@ export default function singleSong(song){
                             <input type="hidden" class="song-id-field" value="${song.id}">
                             <button class="change-album-name-button">&#x270E</button>
                         </div>
+                        
+                        <div><br><br>
+                            ${song.comments.map(comment => {
+                                return `
+                                <div class="album-comments">
+                                    <section class="comment-box-items">
+                                        <h1>${comment.username}</h1>
+                                        <h3>${comment.rating}</h3>
+                                        <p>${comment.body}</p>
+                                    </section>
+                                </div>
+                                `}).join("")
+                            }
+                        </div>
 
                         <h1 id="title">Add a comment!</h1>
 
