@@ -53,7 +53,11 @@ public class SongController {
         Song songToEdit = songRepo.findById(id).get();
         SongComment newSongComment = new SongComment(newComment.getUsername(), newComment.getRating(), newComment.getBody());
         newSongComment.setSong(songToEdit);
+        songToEdit.updateAverageRating();
+
         songCommentRepo.save(newSongComment);
+        songToEdit.addComment(newSongComment);
+
         return songRepo.findById(id).get();
     }
 
@@ -89,6 +93,11 @@ public class SongController {
         song.changeTitle(newTitle);
         songRepo.save(song);
         return album;
+    }
+
+    @GetMapping("/{id}/backToAlbum")
+    public Album backToAlbum(@PathVariable Long id) {
+        return songRepo.findById(id).get().getAlbum();
     }
 
 }

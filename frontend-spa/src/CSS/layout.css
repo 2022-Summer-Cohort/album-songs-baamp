@@ -179,6 +179,12 @@ header .nav .menu{
     font-size: 18px;
 }
 
+#album-info {
+    display: flex;
+    flex-direction: column;
+}
+
+
 footer{
     display:flex;
     justify-content: center;

@@ -30,14 +30,14 @@
   }
  
   
-  #album-info{
+  #album-info, #album-info a{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     color: aliceblue;
     font-size: 30px;
     margin-bottom: 30px;
-    /* text-decoration: underline; */
+    text-decoration: none;
     
   }
   
@@ -63,9 +63,16 @@
     text-decoration: none;
     color: white;
     width: 80%;
-    
-
   }
   .box-items a:hover{
     color: lightgray;
   }
+
+#edit-album-title-button {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+/*#edit-album-title-button h4 {*/
+/*  width: 80%;*/
+/*}*/

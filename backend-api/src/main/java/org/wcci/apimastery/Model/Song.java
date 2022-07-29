@@ -31,7 +31,7 @@ public class Song {
         this.avgRating = updateAverageRating();
     }
 
-    private double updateAverageRating() {
+    public double updateAverageRating() {
         double sumRating = 0;
 
         for (SongComment songComment : songComments) {
@@ -105,5 +105,9 @@ public class Song {
     @Override
     public int hashCode() {
         return Objects.hash(getId(), getTitle(), getLinkUrl(), getDuration(), getAvgRating(), getAlbum());
+    }
+
+    public void addComment(SongComment newSongComment) {
+        songComments.add(newSongComment);
     }
 }
