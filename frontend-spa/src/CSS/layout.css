@@ -50,15 +50,15 @@ header .nav .menu{
 }
 
 .menu-item > a:hover{
-    color: #469DFF;
+    color: #10B0FF;
     transition: 0.3s;
 }
 
 .menu-item .sub-menu{
     position: absolute;
     background: #23252B;
-    top: 50px;
-    line-height: 40px;
+    top: 20px;
+    line-height: 30px;
     list-style: none;
     border-radius: 0 0 8px 8px;
     box-shadow: 0 5px 25px rgb(0 0 0 / 20%);
@@ -67,6 +67,12 @@ header .nav .menu{
     opacity: 0;
     transition: 0.3s;
     transition-property: transform, opacity;
+    z-index: 9999999;
+}
+
+.menu-item .sub-menu img {
+    width: 100%;
+    height: auto;
 }
 
 .menu-item:hover .sub-menu{
@@ -96,6 +102,22 @@ header .nav .menu{
 
 .menu-item .sub-menu .sub-item:last-child{
     border-radius: 0 0 8px 8px;
+}
+
+
+.sub-menu {
+    width: 60vw;
+    position: fixed;
+    right: -50%;
+    /*background-color: red;*/
+}
+
+.space-items {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    background-color: #1e1e1e;
 }
 
 /* .container{
