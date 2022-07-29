@@ -30,14 +30,14 @@
   }
  
   
-  #album-info{
+  #album-info, #album-info a{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     color: aliceblue;
     font-size: 30px;
     margin-bottom: 30px;
-    /* text-decoration: underline; */
+    text-decoration: none;
     
   }
   

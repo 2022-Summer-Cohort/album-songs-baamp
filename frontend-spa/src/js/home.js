@@ -1,7 +1,6 @@
 export default function home(albums) {
     let albumCount = 1;
     return `
-    <body id="exposedbrickbackground">
     <div class="container">
         <input type="file" id="thefile" accept="audio/*" />
         <div id="content">

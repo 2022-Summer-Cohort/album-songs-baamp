@@ -100,6 +100,18 @@ function makeHomeViewFromJson(albums) {
   })
 }
 
+function makeSongView(song) {
+  console.log(song);
+  container.innerHTML = header();
+  container.innerHTML += singleSong(song);
+  container.innerHTML += footer();
+
+  const backbutton = container.querySelector("#backbutton");
+  backbutton.addEventListener("click", () => {
+    makeHomeView();
+  })
+}
+
 function makeSongListView(album) {
   console.log(album);
   container.innerHTML = header();
@@ -120,6 +132,15 @@ function makeSongListView(album) {
         .then(newAlbum => {
           makeSongListView(newAlbum)
         })
+    })
+
+    const songPlayButton = song.querySelector(".show-song");
+    songPlayButton.addEventListener("click", () => {
+      fetch(`http://localhost:8080/api/songs/${songIdEl.value}`)
+      .then(res => res.json())
+      .then(selectedSong => {
+        makeSongView(selectedSong);
+      })
     })
 
   });
