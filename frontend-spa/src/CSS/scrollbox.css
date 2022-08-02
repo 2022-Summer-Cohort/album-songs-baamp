@@ -1,0 +1,79 @@
+.scroll-container {
+    background-color: rgb(238, 37, 37);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 500;
+  }
+  
+  .scrolling-box {
+    
+    
+    display: block;
+    margin-top: 50px;
+    width: 585px;
+    height: 380px;
+    padding: 1em;
+    overflow-y: scroll;
+    /* text-align: center; */
+    z-index: 500;
+  }
+  .scrolling-box::-webkit-scrollbar{
+    /* background-color:rgba(50, 157, 245, 0.89); */
+    width: 4px;
+  }
+  .scrolling-box::-webkit-scrollbar-thumb{
+    background: linear-gradient(transparent, #10B0FF);
+    /* background:rgba(50, 157, 245, 0.89); */
+    border-radius: 6px;
+  }
+ 
+  
+  #album-info, #album-info a{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: aliceblue;
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-decoration: none;
+    
+  }
+  
+  .box-items {
+    justify-content: space-between;
+    
+    color: aliceblue;
+    display: flex;
+    /* align-items: left; */
+    text-align: left;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 26px;
+    /* justify-content: center; */
+    height: 30%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    z-index: 500;
+    text-decoration: none;
+    
+  }
+  .box-items a{
+    text-decoration: none;
+    color: white;
+    width: 80%;
+  }
+  .box-items a:hover{
+    color: lightgray;
+  }
+
+#edit-album-title-button {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+/*#edit-album-title-button h4 {*/
+/*  width: 80%;*/
+/*}*/

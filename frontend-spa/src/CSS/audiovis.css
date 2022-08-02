@@ -1,0 +1,22 @@
+#thefile {
+    position: relative;
+    top: 10px;
+    left: 10px;
+    
+    z-index: 100;
+  }
+  
+  #canvas {
+    
+    
+    
+    
+  }
+  
+  audio {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    /* width: calc(50% - 20px); */
+  }
+  
